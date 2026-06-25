@@ -4,10 +4,10 @@ Blue Arcade tracks comprehensive statistics and provides leaderboards for compet
 
 ## Overview
 
-- **Statistics**: Track player performance across games
-- **Leaderboards (Tops)**: Rank players by various stats
-- **Time Periods**: All-time, daily, weekly, monthly, yearly
-- **Scopes**: Global (all games) and module-specific
+- **Statistics**: Track player performance across games.
+- **Leaderboards (Tops)**: Rank players by various stats.
+- **Time Periods**: All-time, daily, weekly, monthly, yearly.
+- **Scopes**: Global (all games) and module-specific.
 
 **Permission Required:** `bluearcade.stats`
 
@@ -20,16 +20,19 @@ Blue Arcade tracks comprehensive statistics and provides leaderboards for compet
 ```
 /ba stats
 ```
+
 Opens the statistics menu showing your stats.
 
 ```
 /ba stats [category]
 ```
+
 View stats for a specific category (global or module ID).
 
 ```
 /ba stats [category] [period]
 ```
+
 View stats for a specific time period.
 
 **Examples:**
@@ -44,16 +47,19 @@ View stats for a specific time period.
 ```
 /ba tops
 ```
+
 Opens the leaderboards menu.
 
 ```
 /ba tops [category]
 ```
+
 View leaderboard categories.
 
 ```
 /ba tops [stat] [period]
 ```
+
 View ranking for a specific stat and period.
 
 **Examples:**
@@ -93,12 +99,16 @@ Statistics tracked across all minigames:
 |------|-------------|
 | `games_played` | Total games played |
 | `mini_games_played` | Number of different minigames played |
-| `wins` | First place finishes |
+| `wins` / `first_place` | First place finishes |
 | `second_place` | Second place finishes |
 | `third_place` | Third place finishes |
 | `stars` | Total stars earned |
 | `kills` | Total PvP kills |
 | `deaths` | Total deaths |
+| `credits` | Total credits earned |
+| `current_win_streak` | Current win streak |
+| `best_win_streak` | Best win streak |
+| `time_played` | Time played |
 
 ---
 
@@ -128,12 +138,12 @@ Each minigame module can track its own statistics:
 ## Stat Scopes
 
 ### Global Scope
-- Aggregated across all minigames
-- Example: Total wins from all games
+- Aggregated across all minigames.
+- Example: Total wins from all games.
 
 ### Module Scope
-- Specific to one minigame
-- Example: Wins only in Race
+- Specific to one minigame.
+- Example: Wins only in Race.
 
 ### Accessing Module Stats in Commands
 
@@ -150,16 +160,16 @@ Use the format `module:stat`:
 
 The leaderboard shows:
 
-1. **Position** - Ranking number
-2. **Player Name** - Who holds this position
-3. **Value** - The stat value
+1. **Position** — Ranking number.
+2. **Player Name** — Who holds this position.
+3. **Value** — The stat value.
 
 ### Menu View
 
-- Browse categories
-- Select stat and period
-- View top players
-- See your own rank
+- Browse categories.
+- Select stat and period.
+- View top players.
+- See your own rank.
 
 ### Text View
 
@@ -190,7 +200,20 @@ stats:
   enabled: true
   tops:
     page_size: 10
+    min_value: 1
+  sync:
+    enabled: false
+    database: default
+    table_prefix: bluearcade_
 ```
+
+### Database Sync
+
+When sync is enabled, Blue Arcade stores stats in MySQL/MariaDB using the configured database profile. This allows shared profiles across multiple servers.
+
+Two tables are created using the configured table prefix:
+- `<prefix>player_profiles`
+- `<prefix>player_stats`
 
 ---
 
@@ -204,7 +227,7 @@ Access stats via placeholders:
 %bluearcade_stat_module_race_wins%
 ```
 
-See [Placeholders](placeholders.md) for complete list.
+See [Placeholders](placeholders.md) for the complete list.
 
 ---
 
@@ -227,6 +250,8 @@ Statistics are stored per-player in:
 plugins/BlueArcade3/data/users/[uuid].json
 ```
 
+When database sync is enabled, the database is the source of truth and local files are refreshed from it.
+
 Data includes:
 - All stat values
 - Period-based tracking
@@ -236,27 +261,27 @@ Data includes:
 
 ## Tips
 
-1. **Check daily leaderboards** - Compete for daily rankings
-2. **Specialize** - Focus on specific minigames to top those leaderboards
-3. **Watch periods reset** - Get an early lead at the start of each period
-4. **Balance stats** - Some achievements require varied statistics
+1. **Check daily leaderboards** — Compete for daily rankings.
+2. **Specialize** — Focus on specific minigames to top those leaderboards.
+3. **Watch periods reset** — Get an early lead at the start of each period.
+4. **Balance stats** — Some achievements require varied statistics.
 
 ---
 
 ## Troubleshooting
 
 **"Stats are disabled"**
-- Statistics tracking is turned off in settings
-- Contact server administrator
+- Statistics tracking is turned off in settings.
+- Contact the server administrator.
 
 **"No stats found"**
-- You haven't played any games yet
-- Play some games to start tracking
+- You haven't played any games yet.
+- Play some games to start tracking.
 
 **"Leaderboard empty"**
-- No players have stats for this category/period
-- Try a different period (alltime usually has data)
+- No players have stats for this category/period.
+- Try a different period (alltime usually has data).
 
 **"Module not found"**
-- The module ID is incorrect
-- Use `/ba stats` to see available categories
+- The module ID is incorrect.
+- Use `/ba stats` to see available categories.

@@ -4,10 +4,10 @@ Track player progress and reward milestones with the achievements system.
 
 ## Overview
 
-- **Achievements**: Goals players can complete
-- **Phases**: Multi-step progression within achievements
-- **Categories**: Organized groups of related achievements
-- **Rewards**: XP, credits, and stars for completion
+- **Achievements**: Goals players can complete.
+- **Phases**: Multi-step progression within achievements.
+- **Categories**: Organized groups of related achievements.
+- **Rewards**: XP, credits, and stars for completion.
 
 **Permission Required:** `bluearcade.achievements`
 
@@ -20,17 +20,26 @@ Track player progress and reward milestones with the achievements system.
 ```
 /ba achievements
 ```
+
 Opens the main achievements menu showing all categories.
 
 ```
 /ba achievements [category]
 ```
+
 View achievements in a specific category.
 
 ```
 /ba achievements [category] [achievement]
 ```
+
 View details and phases of a specific achievement.
+
+```
+/ba achievements progress
+```
+
+Show the queued achievement summary if notifications are deferred.
 
 ### Pagination
 
@@ -46,8 +55,8 @@ View details and phases of a specific achievement.
 ### Categories
 
 Achievements are organized into categories:
-- **Global**: Available across all minigames
-- **Module-specific**: Tied to specific minigames
+- **Global**: Available across all minigames.
+- **Module-specific**: Tied to specific minigames.
 
 ### Phases
 
@@ -160,6 +169,19 @@ categories:
 
 Each module has its own `achievements.yml` in its config folder.
 
+### Notification Delivery Mode
+
+You can control when achievement notifications are shown:
+
+```yaml
+achievements:
+  notifications:
+    delivery_mode: immediate  # immediate or deferred
+```
+
+- `immediate`: notifications appear during the match.
+- `deferred`: notifications are queued and shown when players leave the arena.
+
 ---
 
 ## Achievement Menu
@@ -186,23 +208,23 @@ The achievements menu shows:
 
 ## Tips
 
-1. **Check regularly** - New achievements may be added with updates
-2. **Focus on phases** - Complete one phase at a time
-3. **Play variety** - Different minigames have different achievements
-4. **Collect rewards** - Don't forget to claim your earned rewards
+1. **Check regularly** — New achievements may be added with updates.
+2. **Focus on phases** — Complete one phase at a time.
+3. **Play variety** — Different minigames have different achievements.
+4. **Collect rewards** — Don't forget to claim your earned rewards.
 
 ---
 
 ## Troubleshooting
 
 **"No achievements found"**
-- The achievements system may be disabled
-- Check if the category exists
+- The achievements system may be disabled.
+- Check if the category exists.
 
 **"Achievement not updating"**
-- Achievements update after games complete
-- Some achievements require specific actions
+- Achievements update after games complete.
+- Some achievements require specific actions.
 
 **"Rewards not received"**
-- Check if the phase was actually completed
-- Some rewards require manual claim
+- Check if the phase was actually completed.
+- Some rewards require manual claim.

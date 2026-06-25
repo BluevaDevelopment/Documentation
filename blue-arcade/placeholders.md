@@ -1,6 +1,6 @@
 # PlaceholderAPI Placeholders
 
-Blue Arcade 3.0 provides extensive PlaceholderAPI integration for use in scoreboards, holograms, and other plugins.
+Blue Arcade provides extensive PlaceholderAPI integration for use in scoreboards, holograms, TAB lists, and other plugins.
 
 **Requirement:** [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) must be installed.
 
@@ -32,7 +32,7 @@ Blue Arcade 3.0 provides extensive PlaceholderAPI integration for use in scorebo
 | `%bluearcade_player_arena_id%` | Current arena ID |
 | `%bluearcade_player_arena_name%` | Current arena display name |
 
-### Team (in-game)
+### Team (In-Game)
 
 These placeholders return an empty string (`""`) when the player is not in an arena or is in a game with no teams (solo mode).
 
@@ -41,23 +41,21 @@ All values use **MiniMessage** (Adventure) format.
 | Placeholder | Description |
 |-------------|-------------|
 | `%bluearcade_player_team_id%` | Team identifier (e.g. `red`, `blue`) |
-| `%bluearcade_player_team_name%` | Team display name as a MiniMessage string (e.g. `<red>Red Team</red>`) |
-| `%bluearcade_player_team_color%` | MiniMessage color tag of the team (e.g. `<red>` or `<#FF5555>`) |
-| `%bluearcade_player_team_prefix%` | Formatted prefix component serialized as MiniMessage — the symbol and color come from the `game.global.ui.tab_list_team_prefix` setting in `settings.yml` (e.g. `<red>█ </red>`) |
+| `%bluearcade_player_team_name%` | Team display name as a MiniMessage string |
+| `%bluearcade_player_team_color%` | Team color as MiniMessage tag |
+| `%bluearcade_player_team_prefix%` | Formatted tab-list prefix. Configure the symbol in `settings.yml` with `game.global.ui.tab_list_team_prefix` |
 
-**Customising the prefix symbol**  
- Edit `game.global.ui.tab_list_team_prefix` in `settings.yml`. Use full MiniMessage syntax.  
- The special tag `<team_color>` is replaced at runtime with the team's own color.  
- ```yaml
- # settings.yml
- game:
-   global:
-     ui:
-       tab_list_team_prefix: "<team_color>█ "   # default
-       # other examples:
-       # "<bold><team_color>■</bold> "
-       # "<red>★ "   (always red, ignores team color)
- ```
+**Customising the prefix symbol**
+
+Edit `game.global.ui.tab_list_team_prefix` in `settings.yml`. Use full MiniMessage syntax. The special tag `<team_color>` is replaced at runtime with the team's own color.
+
+```yaml
+# settings.yml
+game:
+  global:
+    ui:
+      tab_list_team_prefix: "<team_color>█ "
+```
 
 ### Economy & Progress
 
@@ -66,6 +64,104 @@ All values use **MiniMessage** (Adventure) format.
 | `%bluearcade_credits%` | Player's credit balance |
 | `%bluearcade_player_level%` | BlueArcade level (or Minecraft level if disabled) |
 | `%bluearcade_player_exp%` | BlueArcade experience (or Minecraft XP if disabled) |
+
+---
+
+## Server Placeholders
+
+| Placeholder | Description |
+|-------------|-------------|
+| `%bluearcade_server_online%` | Online player count |
+| `%bluearcade_server_max_players%` | Max server capacity |
+| `%bluearcade_playing_players%` | Players currently in arenas |
+| `%bluearcade_modules_total%` | Number of loaded modules |
+
+### Arena Counts
+
+| Placeholder | Description |
+|-------------|-------------|
+| `%bluearcade_arenas_total%` | Total arenas |
+| `%bluearcade_arenas_enabled%` | Enabled arenas |
+| `%bluearcade_arenas_disabled%` | Disabled arenas |
+| `%bluearcade_arenas_waiting%` | Arenas in waiting state |
+| `%bluearcade_arenas_running%` | Arenas running |
+| `%bluearcade_arenas_restarting%` | Arenas restarting |
+| `%bluearcade_arenas_ids%` | Comma-separated arena IDs |
+
+### Module Player Count
+
+```
+%bluearcade_module_<module_id>_players%
+```
+
+Shows how many players are currently active across all arenas using that module.
+
+**Example:**
+```
+%bluearcade_module_race_players%
+%bluearcade_module_spleef_players%
+```
+
+---
+
+## Arena Placeholders
+
+All arena placeholders can be used in two forms:
+
+- `%bluearcade_arena_current_<field>%` — refers to the arena the player is currently in.
+- `%bluearcade_arena_<id>_<field>%` — refers to a specific arena ID.
+
+### Basic Arena Info
+
+| Placeholder | Description |
+|-------------|-------------|
+| `arena_(current\|id)_id` | Arena ID |
+| `arena_(current\|id)_name` | Arena display name |
+| `arena_(current\|id)_display_name` | Arena display name |
+| `arena_(current\|id)_state` | Arena state: `waiting`, `starting`, `running`, `finishing`, `restarting` |
+| `arena_(current\|id)_status` | Arena status: `enabled` or `disabled` |
+| `arena_(current\|id)_status_key` | Same as `state` |
+| `arena_(current\|id)_status_display` | Formatted status label from language config |
+| `arena_(current\|id)_exists` | Arena exists (true/false) |
+| `arena_(current\|id)_players` | Current player count |
+| `arena_(current\|id)_players_max` | Maximum players |
+| `arena_(current\|id)_players_min` | Minimum players |
+| `arena_(current\|id)_round` | Current round number |
+| `arena_(current\|id)_round_max` | Maximum rounds |
+| `arena_(current\|id)_countdown` | Countdown seconds |
+| `arena_(current\|id)_countdown_formatted` | Countdown as `m:ss` |
+| `arena_(current\|id)_game_id` | Current minigame ID |
+| `arena_(current\|id)_game_display` | Current minigame display name |
+| `arena_(current\|id)_forced_start` | Force started (true/false) |
+| `arena_(current\|id)_available_minigames` | Available minigames list |
+| `arena_(current\|id)_played_minigames` | Played minigames list |
+
+### Podium & Stars
+
+| Placeholder | Description |
+|-------------|-------------|
+| `arena_(current\|id)_podium_1` … `podium_10` | Player name at that podium position |
+| `arena_(current\|id)_stars_1` … `stars_10` | Stars of player at that position |
+| `arena_(current\|id)_player_position` | Your podium position |
+| `arena_(current\|id)_player_stars` | Your stars in arena |
+| `arena_(current\|id)_stars_total` | Total stars in arena |
+| `arena_(current\|id)_stars_average` | Average stars |
+
+### Voting
+
+| Placeholder | Description |
+|-------------|-------------|
+| `arena_(current\|id)_vote_<minigame>` | Votes for a specific minigame |
+| `arena_(current\|id)_votes_total` | Total votes cast |
+
+### Examples
+
+```
+%bluearcade_arena_1_name%
+%bluearcade_arena_1_state%
+%bluearcade_arena_1_players%
+%bluearcade_arena_2_game_display%
+```
 
 ---
 
@@ -78,11 +174,16 @@ All values use **MiniMessage** (Adventure) format.
 | `%bluearcade_stat_global_games_played%` | Total games played |
 | `%bluearcade_stat_global_mini_games_played%` | Different minigames played |
 | `%bluearcade_stat_global_wins%` | Total first places |
+| `%bluearcade_stat_global_first_place%` | Total first places |
 | `%bluearcade_stat_global_second_place%` | Total second places |
 | `%bluearcade_stat_global_third_place%` | Total third places |
 | `%bluearcade_stat_global_stars%` | Total stars earned |
 | `%bluearcade_stat_global_kills%` | Total kills |
 | `%bluearcade_stat_global_deaths%` | Total deaths |
+| `%bluearcade_stat_global_credits%` | Total credits earned |
+| `%bluearcade_stat_global_current_win_streak%` | Current win streak |
+| `%bluearcade_stat_global_best_win_streak%` | Best win streak |
+| `%bluearcade_stat_global_time_played%` | Time played |
 
 ### Module-Specific Stats
 
@@ -123,96 +224,9 @@ Get information about stat definitions:
 | `%bluearcade_stat_display_global_[stat]%` | Display name |
 | `%bluearcade_stat_description_global_[stat]%` | Description |
 | `%bluearcade_stat_scope_global_[stat]%` | Scope (global/module) |
-
----
-
-## Server Placeholders
-
-| Placeholder | Description |
-|-------------|-------------|
-| `%bluearcade_server_online%` | Online player count |
-| `%bluearcade_server_max_players%` | Max server capacity |
-| `%bluearcade_playing_players%` | Players currently in arenas |
-| `%bluearcade_modules_total%` | Number of loaded modules |
-
-### Arena Counts
-
-| Placeholder | Description |
-|-------------|-------------|
-| `%bluearcade_arenas_total%` | Total arenas |
-| `%bluearcade_arenas_enabled%` | Enabled arenas |
-| `%bluearcade_arenas_disabled%` | Disabled arenas |
-| `%bluearcade_arenas_waiting%` | Arenas in waiting state |
-| `%bluearcade_arenas_running%` | Arenas in running state |
-| `%bluearcade_arenas_restarting%` | Arenas restarting |
-| `%bluearcade_arenas_ids%` | Comma-separated arena IDs |
-
----
-
-## Arena Placeholders
-
-### Current Arena (Player's Arena)
-
-| Placeholder | Description |
-|-------------|-------------|
-| `%bluearcade_arena_current_id%` | Arena ID |
-| `%bluearcade_arena_current_name%` | Arena display name |
-| `%bluearcade_arena_current_state%` | Arena state (waiting/running/restarting) |
-| `%bluearcade_arena_current_status%` | Arena status (enabled/disabled) |
-| `%bluearcade_arena_current_players%` | Current player count |
-| `%bluearcade_arena_current_players_max%` | Maximum players |
-| `%bluearcade_arena_current_players_min%` | Minimum players |
-| `%bluearcade_arena_current_round%` | Current round number |
-| `%bluearcade_arena_current_round_max%` | Maximum rounds |
-| `%bluearcade_arena_current_countdown%` | Countdown seconds |
-| `%bluearcade_arena_current_countdown_formatted%` | Countdown (MM:SS) |
-| `%bluearcade_arena_current_game_id%` | Current minigame ID |
-| `%bluearcade_arena_current_game_display%` | Current minigame name |
-| `%bluearcade_arena_current_forced_start%` | Force started (true/false) |
-| `%bluearcade_arena_current_available_minigames%` | Available minigames list |
-| `%bluearcade_arena_current_played_minigames%` | Played minigames list |
-
-### Podium & Stars
-
-| Placeholder | Description |
-|-------------|-------------|
-| `%bluearcade_arena_current_podium_1%` | 1st place player name |
-| `%bluearcade_arena_current_podium_2%` | 2nd place player name |
-| `%bluearcade_arena_current_podium_3%` | 3rd place player name |
-| `%bluearcade_arena_current_stars_1%` | Stars for 1st place |
-| `%bluearcade_arena_current_stars_2%` | Stars for 2nd place |
-| `%bluearcade_arena_current_stars_3%` | Stars for 3rd place |
-| `%bluearcade_arena_current_player_position%` | Your podium position |
-| `%bluearcade_arena_current_player_stars%` | Your stars in arena |
-| `%bluearcade_arena_current_stars_total%` | Total stars in arena |
-| `%bluearcade_arena_current_stars_average%` | Average stars |
-
-### Voting
-
-| Placeholder | Description |
-|-------------|-------------|
-| `%bluearcade_arena_current_vote_[minigame]%` | Votes for a specific minigame |
-| `%bluearcade_arena_current_votes_total%` | Total votes cast |
-
-### Specific Arena (by ID)
-
-Replace `current` with the arena ID:
-
-```
-%bluearcade_arena_1_name%
-%bluearcade_arena_1_state%
-%bluearcade_arena_1_players%
-%bluearcade_arena_2_game_display%
-```
-
-| Placeholder | Description |
-|-------------|-------------|
-| `%bluearcade_arena_[id]_exists%` | Arena exists (true/false) |
-| `%bluearcade_arena_[id]_name%` | Arena display name |
-| `%bluearcade_arena_[id]_state%` | Arena state |
-| `%bluearcade_arena_[id]_status%` | Arena status |
-| `%bluearcade_arena_[id]_players%` | Player count |
-| `%bluearcade_arena_[id]_players_max%` | Max players |
+| `%bluearcade_stat_display_module_[module]_[stat]%` | Module stat display name |
+| `%bluearcade_stat_description_module_[module]_[stat]%` | Module stat description |
+| `%bluearcade_stat_scope_module_[module]_[stat]%` | Module stat scope |
 
 ---
 
@@ -235,7 +249,7 @@ Replace `current` with the arena ID:
 
 ## Top Stats Placeholders
 
-Use these placeholders to reproduce everything shown in the `/ba tops` menus (categories, stat lists, and leaderboards).
+Use these placeholders to reproduce everything shown in the `/ba tops` menus.
 
 ### Totals (Stats List)
 
@@ -270,23 +284,23 @@ Format: `%bluearcade_tops_category_[category_id]_[field]%`
 %bluearcade_tops_category_spleef_scope%
 ```
 
-### Stat Info (For Leaderboards)
+### Stat Info
 
-Format: `%bluearcade_tops_stat_[field]_[module_id]_[stat_key]_[period?]%`
+Format: `%bluearcade_tops_stat_[field]_[module_id]_[stat_key]_[period]%`
 
-Use `core` as the module id for global stats.
+Use `core` or `global` as the module id for global stats.
 
 | Field | Description |
 |-------|-------------|
 | `display` | Stat display name |
 | `key` | Stat key |
 | `full` | Full stat target (`module:stat` or `stat`) |
-| `module_id` | Module id (`global` if global stat) |
+| `module_id` | Module id |
 | `module_name` | Module display name |
-| `scope` | Scope label (Global/Module) |
-| `scope_label` | Scope label (alias of `scope`) |
-| `scope_key` | Scope key (`global` or `module`) |
-| `value` | Player's stat value (uses optional period) |
+| `scope` | Scope label |
+| `scope_label` | Scope label alias |
+| `scope_key` | Scope key |
+| `value` | Player's stat value |
 
 **Examples:**
 ```
@@ -316,8 +330,6 @@ Use `core` as the module id for global stats.
 
 Format: `%bluearcade_tops_entry_total_[module_id]_[stat_key]_[period]%`
 
-Use `core` as the module id for global stats.
-
 **Example:**
 ```
 %bluearcade_tops_entry_total_core_wins_monthly%
@@ -331,9 +343,7 @@ Use `core` as the module id for global stats.
 
 ### Pagination Helpers
 
-These helpers mirror the values used by the `/ba tops` menus. When a page parameter is required, the menu will be clamped to a valid page range.
-
-**Stats list (menu: `tops_menu`):**
+**Stats list:**
 
 | Placeholder | Description |
 |-------------|-------------|
@@ -344,7 +354,7 @@ These helpers mirror the values used by the `/ba tops` menus. When a page parame
 | `%bluearcade_tops_stats_page_has_previous_[page]%` | Has previous page (true/false) |
 | `%bluearcade_tops_stats_page_current_[page]%` | Current page (clamped) |
 
-**Categories (menu: `tops_categories`):**
+**Categories:**
 
 | Placeholder | Description |
 |-------------|-------------|
@@ -355,11 +365,9 @@ These helpers mirror the values used by the `/ba tops` menus. When a page parame
 | `%bluearcade_tops_categories_page_has_previous_[page]%` | Has previous page (true/false) |
 | `%bluearcade_tops_categories_page_current_[page]%` | Current page (clamped) |
 
-**Leaderboard (menu: `tops_list_menu`):**
+**Leaderboard:**
 
-Format: `%bluearcade_tops_page_[field]_[module_id]_[stat_key]_[period]_[page?]%`
-
-Use `core` as the module id for global stats.
+Format: `%bluearcade_tops_page_[field]_[module_id]_[stat_key]_[period]_[page]%`
 
 | Field | Description |
 |-------|-------------|
@@ -385,39 +393,32 @@ Use `core` as the module id for global stats.
 
 ```yaml
 lines:
-  - "&7Playing: &a%bluearcade_arena_current_game_display%"
-  - "&7Round: &e%bluearcade_arena_current_round%/%bluearcade_arena_current_round_max%"
+  - "<gray>Playing: <green>%bluearcade_arena_current_game_display%"
+  - "<gray>Round: <yellow>%bluearcade_arena_current_round%/%bluearcade_arena_current_round_max%"
   - ""
-  - "&7Your Stars: &6%bluearcade_arena_current_player_stars%"
-  - "&7Position: &b#%bluearcade_arena_current_player_position%"
+  - "<gray>Your Stars: <gold>%bluearcade_arena_current_player_stars%"
+  - "<gray>Position: <aqua>#%bluearcade_arena_current_player_position%"
   - ""
-  - "&61st &f%bluearcade_arena_current_podium_1%"
-  - "&72nd &f%bluearcade_arena_current_podium_2%"
-  - "&c3rd &f%bluearcade_arena_current_podium_3%"
+  - "<gold>1st <white>%bluearcade_arena_current_podium_1%"
+  - "<gray>2nd <white>%bluearcade_arena_current_podium_2%"
+  - "<red>3rd <white>%bluearcade_arena_current_podium_3%"
 ```
 
-### TAB plugin — team color prefix in the tab list
+### TAB Plugin — Team Color Prefix
 
-To display the team color indicator in the TAB list, configure a custom prefix in your TAB plugin layout using the `player_team_prefix` placeholder. It returns a MiniMessage string (e.g. `<red>█ </red>`) when the player is in a team game, or an empty string otherwise — safe to use globally.
+Configure a custom prefix in your TAB plugin layout using the `player_team_prefix` placeholder. It returns a MiniMessage string when the player is in a team game, or an empty string otherwise.
 
 ```yaml
 # config.yml (TAB plugin — MiniMessage mode)
 players:
   _DEFAULT_:
-    tabprefix: "%bluearcade_player_team_prefix%"
+    tabprefix: "%luckperms_prefix%%bluearcade_player_team_prefix%"
     tabsuffix: ""
 ```
 
-You can also combine it with a rank prefix from LuckPerms or another permissions plugin:
+The prefix symbol is configurable in `settings.yml`:
 
 ```yaml
-tabprefix: "%luckperms_prefix%%bluearcade_player_team_prefix%"
-```
-
-The prefix symbol and default color are configurable in `settings.yml`:
-
-```yaml
-# settings.yml
 game:
   global:
     ui:
@@ -428,16 +429,16 @@ game:
 
 ```yaml
 lines:
-  - "&6&lParty Games"
-  - "&7Arena #1"
+  - "<gold><bold>Party Games</bold>"
+  - "<gray>Arena #1"
   - ""
-  - "&7Players: &a%bluearcade_arena_1_players%/%bluearcade_arena_1_players_max%"
-  - "&7State: &e%bluearcade_arena_1_state%"
+  - "<gray>Players: <green>%bluearcade_arena_1_players%/%bluearcade_arena_1_players_max%"
+  - "<gray>State: <yellow>%bluearcade_arena_1_state%"
 ```
 
 ### NPC (using Citizens + PlaceholderAPI)
 
 ```
-&7Wins: &a%bluearcade_stat_global_wins%
-&7Level: &b%bluearcade_player_level%
+<gray>Wins: <green>%bluearcade_stat_global_wins%
+<gray>Level: <aqua>%bluearcade_player_level%
 ```

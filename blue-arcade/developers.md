@@ -1,13 +1,13 @@
 # Creating a Module
 
-This guide explains how to create a custom minigame module for Blue Arcade 3.0.
+This guide explains how to create a custom minigame module for Blue Arcade.
 
 ## Overview
 
-Blue Arcade uses a modular architecture where each minigame is a separate JAR file that implements the `GameModule` interface.
+Blue Arcade uses a modular architecture where each minigame is a separate JAR file that implements the `GameModule` interface. Modules depend only on the BlueArcade API and never on Core internals, so the same module can target both Minecraft and Hytale editions (when a Hytale implementation exists).
 
 **Requirements:**
-- Java 21
+- Java 17 or higher
 - Maven or Gradle
 - IntelliJ IDEA (recommended)
 
@@ -46,7 +46,7 @@ my-module/
     <version>1.0.0</version>
 
     <properties>
-        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -66,7 +66,7 @@ my-module/
         <dependency>
             <groupId>com.github.BluevaDevelopment</groupId>
             <artifactId>BlueArcadeAPI</artifactId>
-            <version>3.0.0-2</version>
+            <version>LATEST</version> <!-- Replace with the latest API release -->
             <scope>provided</scope>
         </dependency>
 
@@ -74,7 +74,7 @@ my-module/
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.21.3-R0.1-SNAPSHOT</version>
+            <version>1.18.1-R0.1-SNAPSHOT</version> <!-- Use the minimum API version your module needs -->
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -473,6 +473,31 @@ public void registerEvents(CustomEventRegistry<Listener, EventPriority> registry
 
 ---
 
+## Module Package Layout
+
+For modern modules, organize your code like this:
+
+```
+com.example.mymodule/
+├── MyModule.java              # Module entrypoint: wiring and lifecycle delegation
+├── game/
+│   └── MyGameManager.java     # Arena/game orchestration and per-arena state
+├── listener/
+│   └── MyListener.java        # Bukkit event listeners that delegate to services
+├── setup/
+│   └── MySetup.java           # Arena setup command handler
+├── state/
+│   └── MyGameState.java       # Lightweight state holder (no side effects)
+└── support/
+    └── MyHelperService.java   # Optional helpers (combat, loadout, placeholders, etc.)
+```
+
+- Keep entrypoint classes under ~200 lines.
+- Listeners should only translate platform events into service calls.
+- Avoid static state; use dedicated state objects per arena.
+
+---
+
 ## Building and Installing
 
 ### Build the JAR
@@ -483,48 +508,49 @@ mvn clean package
 
 ### Install the Module
 
-1. Copy the JAR to `plugins/BlueArcade3/modules/`
-2. Run `/baa module load [module_id]` to load the module (e.g., `/baa module load my_module`)
+1. Copy the JAR to `plugins/BlueArcade3/modules/`.
+2. Run `/baa module load [module_id]` or `/baa reload all`.
 
 ---
 
 ## Module Lifecycle
 
-1. **onLoad()** - Called once when server starts
-   - Register stats, vote menu, setup commands
-   - Initialize configuration
+1. **onLoad()** — Called once when server starts.
+   - Register stats, vote menu, setup commands.
+   - Initialize configuration.
 
-2. **onStart()** - Called when arena selects this game
-   - Initialize game state
-   - Prepare arena
+2. **onStart()** — Called when arena selects this game.
+   - Initialize game state.
+   - Prepare arena.
 
-3. **onCountdownTick()** - Called every second during countdown
-   - Send countdown titles/sounds
+3. **onCountdownTick()** — Called every second during countdown.
+   - Send countdown titles/sounds.
 
-4. **onCountdownFinish()** - Called when countdown ends
-   - Send "GO!" message
+4. **onCountdownFinish()** — Called when countdown ends.
+   - Send "GO!" message.
 
-5. **onGameStart()** - Called after countdown
-   - Start game timers
-   - Enable game mechanics
+5. **onGameStart()** — Called after countdown.
+   - Start game timers.
+   - Enable game mechanics.
 
-6. **onEnd()** - Called when game ends
-   - Record statistics
-   - Clean up game state
+6. **onEnd()** — Called when game ends.
+   - Record statistics.
+   - Clean up game state.
 
-7. **onDisable()** - Called when module unloads
-   - Clean up resources
+7. **onDisable()** — Called when module unloads.
+   - Clean up resources.
 
 ---
 
 ## Best Practices
 
-1. **Use the Context** - The `GameContext` provides all necessary APIs
-2. **Clean up properly** - Reset state in `onEnd()` and `onDisable()`
-3. **Handle null checks** - APIs may return null if disabled
-4. **Register stats early** - Do it in `onLoad()`
-5. **Use configuration** - Make your module configurable
-6. **Test thoroughly** - Test with multiple players and edge cases
+1. **Use the Context** — The `GameContext` provides all necessary APIs.
+2. **Clean up properly** — Reset state in `onEnd()` and `onDisable()`.
+3. **Handle null checks** — APIs may return null if disabled.
+4. **Register stats early** — Do it in `onLoad()`.
+5. **Use configuration** — Make your module configurable.
+6. **Test thoroughly** — Test with multiple players and edge cases.
+7. **Stay API-only** — Modules must never depend on Core internals.
 
 ---
 
@@ -532,23 +558,23 @@ mvn clean package
 
 Check out official module source code for reference:
 
-- [Race](https://github.com/BluevaDevelopment/BlueArcade_Race) - Simple race game
-- [Spleef](https://github.com/BluevaDevelopment/BlueArcade_Spleef) - Block breaking
-- [Snowball Fight](https://github.com/BluevaDevelopment/BlueArcade_SnowballFight) - PvP combat
+- [Race](https://github.com/BluevaDevelopment/BlueArcade_Race) — Simple race game
+- [Spleef](https://github.com/BluevaDevelopment/BlueArcade_Spleef) — Block breaking
+- [Snowball Fight](https://github.com/BluevaDevelopment/BlueArcade_SnowballFight) — PvP combat
 
 ---
 
 ## API Reference
 
 The BlueArcade API is available at:
-- **JitPack**: `com.github.BluevaDevelopment:BlueArcadeAPI:3.0.0-2`
+- **JitPack**: `com.github.BluevaDevelopment:BlueArcadeAPI` — use the latest release tag
 - **GitHub**: [BlueArcadeAPI](https://github.com/BluevaDevelopment/BlueArcadeAPI)
 
 Key interfaces and classes:
-- `GameModule` - Main module interface
-- `GameContext` - Game state and APIs
-- `ModuleAPI` - Access to all APIs
-- `StatsAPI` - Statistics tracking
-- `VoteMenuAPI` - Vote menu registration
-- `AchievementsAPI` - Achievement registration
-- `GameSetupHandler` - Setup command handling
+- `GameModule` — Main module interface
+- `GameContext` — Game state and APIs
+- `ModuleAPI` — Access to all APIs
+- `StatsAPI` — Statistics tracking
+- `VoteMenuAPI` — Vote menu registration
+- `AchievementsAPI` — Achievement registration
+- `GameSetupHandler` — Setup command handling

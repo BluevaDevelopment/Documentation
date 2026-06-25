@@ -1,12 +1,13 @@
 # Store System
 
-The store allows players to spend credits on cosmetic items like victory effects, death effects, and more.
+The store allows players to spend credits on cosmetic items like victory effects, death effects, kill effects, and victory music.
 
 ## Overview
 
-- **Credits**: In-game currency earned by playing games
-- **Categories**: Victory Effects, Death Effects, Kill Effects, Victory Music
-- **Items**: Cosmetics that can be purchased and selected
+- **Credits**: In-game currency earned by playing games.
+- **Categories**: Victory Effects, Death Effects, Kill Effects, Victory Music.
+- **Items**: Cosmetics that can be purchased and selected.
+- **Module-Specific Stores**: Some modules add their own store categories.
 
 **Permission Required:** `bluearcade.store`
 
@@ -19,18 +20,27 @@ The store allows players to spend credits on cosmetic items like victory effects
 ```
 /ba store
 ```
+
 Opens the main store menu.
 
 ```
 /ba store page [number]
 ```
+
 Navigate to a specific page.
+
+```
+/ba store module [module_id]
+```
+
+Open the store for a specific module's cosmetics, if the module provides them.
 
 ### Browsing Categories
 
 ```
 /ba store category [category_id] (page)
 ```
+
 View items in a specific category.
 
 ### Purchasing Items
@@ -38,6 +48,7 @@ View items in a specific category.
 ```
 /ba store buy [category] [item]
 ```
+
 Opens purchase confirmation for an item.
 
 ### Selecting Items
@@ -45,6 +56,7 @@ Opens purchase confirmation for an item.
 ```
 /ba store select [category] [item]
 ```
+
 Select an owned item as your active choice.
 
 ### Viewing Credits
@@ -52,7 +64,16 @@ Select an owned item as your active choice.
 ```
 /ba credits
 ```
+
 Shows your current credit balance.
+
+### Paying Credits
+
+```
+/ba credits pay [player] [amount]
+```
+
+Send credits to another player.
 
 ---
 
@@ -108,7 +129,7 @@ Players earn credits by:
 - Completing achievements
 - Admin rewards (`/baa credits give`)
 
-Credit rewards are configured in the plugin settings.
+Credit rewards are configured in `rewards.yml`.
 
 ---
 
@@ -121,14 +142,16 @@ Blue Arcade can use Vault for economy integration:
 - Shared currency across plugins
 
 **Without Vault:**
-- Uses built-in credits system
+- Uses the built-in credits system
 - Credits are Blue Arcade-specific
 
 Configure in `settings.yml`:
 ```yaml
 economy:
-  provider: internal  # or "vault"
+  provider: builtin  # builtin, vault, or custom
 ```
+
+With the `custom` provider you can define your own give/take commands and a placeholder to read balances.
 
 ---
 
@@ -153,12 +176,12 @@ Give credits to a player. Use `-s` for silent mode (no notification).
 
 ## Store Configuration
 
-The store is configured in various YAML files:
+The store is configured in YAML files under `plugins/BlueArcade3/store/`:
 
-- `victory_effects.yml` - Victory effect items
-- `death_effects.yml` - Death effect items
-- `kill_effects.yml` - Kill effect items
-- `victory_music.yml` - Victory music tracks
+- `victory_effects.yml` — Victory effect items
+- `death_effects.yml` — Death effect items
+- `kill_effects.yml` — Kill effect items
+- `victory_music.yml` — Victory music tracks
 
 Each item defines:
 - Display name
@@ -184,17 +207,17 @@ When browsing the store, items show different states:
 ## Troubleshooting
 
 **"Insufficient credits"**
-- You don't have enough credits
-- Play more games to earn credits
+- You don't have enough credits.
+- Play more games to earn credits.
 
 **"Store is disabled"**
-- The store has been disabled in settings
-- Contact server administrator
+- The store has been disabled in settings.
+- Contact the server administrator.
 
 **"Item not found"**
-- The item ID is incorrect
-- Check available items in the store menu
+- The item ID is incorrect.
+- Check available items in the store menu.
 
 **"Already owned"**
-- You already purchased this item
-- Use `/ba store select` to activate it
+- You already purchased this item.
+- Use `/ba store select` to activate it.

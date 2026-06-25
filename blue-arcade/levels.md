@@ -4,10 +4,10 @@ Blue Arcade includes a progression system with experience points and levels.
 
 ## Overview
 
-- **Experience (XP)**: Points earned by playing games
-- **Levels**: Milestones reached by accumulating XP
-- **Titles**: Display titles based on level ranges
-- **Progress Bar**: Visual representation of level progress
+- **Experience (XP)**: Points earned by playing games.
+- **Levels**: Milestones reached by accumulating XP.
+- **Titles**: Display titles based on level ranges.
+- **Progress Bar**: Visual representation of level progress.
 
 **Permission Required:** `bluearcade.level`
 
@@ -49,23 +49,23 @@ Required XP = base_xp * (1 + growth_percent)^level
 ```
 
 **Default Values:**
-- Base XP: 800
-- Growth: 15% per level
+- Base XP: 250
+- Growth: 10% per level
 
 **Example:**
-- Level 1: 800 XP
-- Level 2: 920 XP
-- Level 3: 1,058 XP
-- Level 10: 2,918 XP
-- Level 50: 73,558 XP
+- Level 1: 250 XP
+- Level 2: 275 XP
+- Level 3: 303 XP
+- Level 10: 588 XP
+- Level 50: 23,605 XP
 
 ### Leveling Up
 
 When you accumulate enough XP:
-1. Level increases automatically
-2. XP counter resets for next level
-3. New title may be unlocked
-4. Notification is shown
+1. Level increases automatically.
+2. XP counter resets for next level.
+3. New title may be unlocked.
+4. Notification is shown.
 
 ---
 
@@ -75,12 +75,12 @@ Titles are display names based on level ranges:
 
 | Level Range | Title |
 |-------------|-------|
-| 1-5 | Rookie |
-| 6-15 | Apprentice |
-| 16-30 | Skilled |
-| 31-50 | Veteran |
-| 51-75 | Expert |
-| 76-100 | Master |
+| 1–5 | Rookie |
+| 6–15 | Apprentice |
+| 16–30 | Skilled |
+| 31–50 | Veteran |
+| 51–75 | Expert |
+| 76–100 | Master |
 | 100+ | Legend |
 
 *Titles are configurable by server administrators.*
@@ -113,9 +113,9 @@ Levels can optionally reset on a schedule:
 | `monthly` | Reset on the 1st of each month |
 
 When reset occurs:
-- Level returns to 1
-- XP counter resets
-- Previous progress is not recoverable
+- Level returns to 1.
+- XP counter resets.
+- Previous progress is not recoverable.
 
 ---
 
@@ -145,8 +145,8 @@ Level settings in `settings.yml`:
 ```yaml
 levels:
   enabled: true
-  base_xp: 800
-  growth_percent: 15
+  base_xp: 250
+  growth_percent: 10
   period: permanent  # permanent, yearly, monthly
   progress_bar:
     length: 20
@@ -159,7 +159,6 @@ levels:
     apprentice:
       min_level: 6
       max_level: 15
-    # ... more titles
 ```
 
 ---
@@ -197,27 +196,27 @@ Level is not tracked on leaderboards by default, but XP can be added as a custom
 
 ## Tips
 
-1. **Play regularly** - XP accumulates over time
-2. **Win games** - Winners typically earn more XP
-3. **Complete achievements** - Extra XP bonuses
-4. **Check progress** - Use `/ba level` to see how close you are
+1. **Play regularly** — XP accumulates over time.
+2. **Win games** — Winners typically earn more XP.
+3. **Complete achievements** — Extra XP bonuses.
+4. **Check progress** — Use `/ba level` to see how close you are.
 
 ---
 
 ## Troubleshooting
 
 **"Levels are disabled"**
-- The leveling system is turned off
-- Contact server administrator
+- The leveling system is turned off.
+- Contact the server administrator.
 
 **"XP not updating"**
-- XP is granted after games complete
-- Make sure you finish games (don't quit early)
+- XP is granted after games complete.
+- Make sure you finish games (don't quit early).
 
 **"Level not increasing"**
-- You may not have enough XP yet
-- Check required XP with `/ba level`
+- You may not have enough XP yet.
+- Check required XP with `/ba level`.
 
 **"Title not changing"**
-- Titles only change at specific level thresholds
-- Keep leveling to unlock new titles
+- Titles only change at specific level thresholds.
+- Keep leveling to unlock new titles.

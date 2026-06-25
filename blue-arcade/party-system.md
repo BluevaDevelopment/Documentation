@@ -4,9 +4,9 @@ The party system allows players to group together and play games as a team. When
 
 ## Overview
 
-- **Party Leader**: The player who created or currently leads the party
-- **Party Members**: Players who have joined the party
-- **Party Types**: Public (anyone can join) or Private (invite only)
+- **Party Leader**: The player who created or currently leads the party.
+- **Party Members**: Players who have joined the party.
+- **Party Types**: Public (anyone can join) or Private (invite only).
 
 **Permission Required:** `bluearcade.party`
 
@@ -36,6 +36,7 @@ Sends an invitation to the specified player. They must accept to join.
 ```
 /ba party invite
 ```
+
 Opens a menu showing online players you can invite.
 
 ### Accepting/Rejecting Invitations
@@ -70,18 +71,20 @@ When you receive an invitation, use the leader's name to accept or reject it.
 /ba party leave
 ```
 
-If the leader leaves, leadership transfers to the next member. If you're the last member, the party is disbanded.
+If the leader leaves, leadership transfers to another member. If the leader disconnects, a reconnect timeout applies (default 60 seconds) before the party is disbanded. If you are the last member, the party is disbanded.
 
 ### Viewing Party Info
 
 ```
 /ba party list
 ```
+
 Shows all party members in chat.
 
 ```
 /ba party members (page)
 ```
+
 Opens a menu showing all members.
 
 ### Public Parties
@@ -144,21 +147,21 @@ Find and join public parties.
 ### Joining Arenas
 
 When the party leader joins an arena:
-1. All online party members are brought along
-2. The arena must have enough space for the entire party
-3. If the arena is full, the join fails
+1. All online party members are brought along.
+2. The arena must have enough space for the entire party.
+3. If the arena is full, the join fails.
 
 ### During Games
 
-- Party members play together in the same arena
-- In team-based games, party members may be on the same team (if supported)
-- Individual scores still tracked
+- Party members play together in the same arena.
+- In team-based games, party members may be placed on the same team if the module supports it.
+- Individual scores are still tracked.
 
 ### Leaving Arenas
 
-- If the leader leaves, all party members leave
-- Individual members can leave without affecting others
-- Party stays intact after games end
+- If the leader leaves, all party members leave.
+- Individual members can leave without affecting others.
+- The party stays intact after games end.
 
 ---
 
@@ -166,15 +169,15 @@ When the party leader joins an arena:
 
 ### Private Party (Default)
 
-- Only invited players can join
-- Leader must send invitations
-- More control over who plays with you
+- Only invited players can join.
+- The leader must send invitations.
+- More control over who plays with you.
 
 ### Public Party
 
-- Anyone can join without invitation
-- Visible in public party search
-- Good for meeting new players
+- Anyone can join without an invitation.
+- Visible in public party search.
+- Good for meeting new players.
 
 **Change type:**
 ```
@@ -186,10 +189,10 @@ When the party leader joins an arena:
 
 ## Tips
 
-1. **Create a party before joining** - Form your group in the lobby
-2. **Check party size** - Make sure the arena can fit your entire party
-3. **Use public parties** - Great way to find players when playing solo
-4. **Leadership transfer** - Transfer leadership before leaving if you want the party to continue
+1. **Create a party before joining** — Form your group in the lobby.
+2. **Check party size** — Make sure the arena can fit your entire party.
+3. **Use public parties** — Great way to find players when playing solo.
+4. **Leadership transfer** — Transfer leadership before leaving if you want the party to continue.
 
 ---
 
@@ -204,17 +207,17 @@ When the party leader joins an arena:
 ## Troubleshooting
 
 **"Party is full"**
-- Parties have a size limit based on arena max players
-- The leader should join a larger arena
+- Parties are capped by the largest configured arena capacity.
+- The leader should join a larger arena.
 
 **"Player is already in a party"**
-- The invited player must leave their current party first
-- Or they need to reject their pending invitations
+- The invited player must leave their current party first.
+- Or they need to reject their pending invitations.
 
 **"Arena doesn't have enough space"**
-- The arena cannot fit all party members
-- Try a different arena with higher max players
+- The arena cannot fit all party members.
+- Try a different arena with a higher max players setting.
 
 **"You are not the party leader"**
-- Only the leader can kick, invite, or transfer leadership
-- Ask the leader to transfer leadership to you
+- Only the leader can kick, invite, or transfer leadership.
+- Ask the leader to transfer leadership to you.
