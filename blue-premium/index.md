@@ -1,4 +1,4 @@
-# Blue Premium (test 2)
+# Blue Premium (test 3)
 
 Blue Premium is Blueva's authentication solution for mixed Minecraft networks.
 It replaces JPremium while keeping the migration path familiar for servers that
