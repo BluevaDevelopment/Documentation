@@ -108,8 +108,8 @@ Shows how many players are currently active across all arenas using that module.
 
 All arena placeholders can be used in two forms:
 
-- `%bluearcade_arena_current_<field>%` — refers to the arena the player is currently in.
-- `%bluearcade_arena_<id>_<field>%` — refers to a specific arena ID.
+- `%bluearcade_arena_current_<field>%` - refers to the arena the player is currently in.
+- `%bluearcade_arena_<id>_<field>%` - refers to a specific arena ID.
 
 ### Basic Arena Info
 
@@ -404,12 +404,12 @@ lines:
   - "<red>3rd <white>%bluearcade_arena_current_podium_3%"
 ```
 
-### TAB Plugin — Team Color Prefix
+### TAB Plugin - Team Color Prefix
 
 Configure a custom prefix in your TAB plugin layout using the `player_team_prefix` placeholder. It returns a MiniMessage string when the player is in a team game, or an empty string otherwise.
 
 ```yaml
-# config.yml (TAB plugin — MiniMessage mode)
+# config.yml (TAB plugin - MiniMessage mode)
 players:
   _DEFAULT_:
     tabprefix: "%luckperms_prefix%%bluearcade_player_team_prefix%"

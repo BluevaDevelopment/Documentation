@@ -40,7 +40,7 @@ These require proxy sync to be configured in `settings.yml` and BlueSpoofProxy t
 
 | Placeholder | Description |
 |-------------|-------------|
-| `%bluespoof_check_player_{name}%` | Check if a player is fake — returns `fake`, `real`, or `null` if offline |
+| `%bluespoof_check_player_{name}%` | Check if a player is fake - returns `fake`, `real`, or `null` if offline |
 
 ---
 

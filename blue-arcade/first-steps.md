@@ -28,7 +28,7 @@ Before installing, make sure your server meets these requirements:
 4. **Start** the server. Required libraries are downloaded automatically on first startup.
 5. **Set the main lobby** with `/baa setmainlobby`.
 
-That is it — the plugin is now installed.
+That is it - the plugin is now installed.
 
 ## Install Minigame Modules
 

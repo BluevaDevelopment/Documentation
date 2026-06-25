@@ -10,9 +10,9 @@
 
 The Events module runs commands automatically when specific things happen to fake players:
 
-- **Join Event** — When a fake player connects to the server
-- **Quit Event** — When a fake player disconnects
-- **Task Event** — Repeatedly while fake players are online
+- **Join Event** - When a fake player connects to the server
+- **Quit Event** - When a fake player disconnects
+- **Task Event** - Repeatedly while fake players are online
 
 This is useful for integrating fake players with other plugins. For example, you can broadcast a welcome message, assign a permission group, or trigger a custom event in another plugin.
 
@@ -39,8 +39,8 @@ Each event contains a numbered list of command entries. Every entry supports:
 
 ### Execute Modes
 
-- **CONSOLE** — The command runs from the server console. Use this for commands like `broadcast`, `lp user ... parent set ...`, or `give`.
-- **FAKE_PLAYER** — The command runs as if the fake player typed it. Use this for player commands like `msg`, `home`, or plugin-specific player commands.
+- **CONSOLE** - The command runs from the server console. Use this for commands like `broadcast`, `lp user ... parent set ...`, or `give`.
+- **FAKE_PLAYER** - The command runs as if the fake player typed it. Use this for player commands like `msg`, `home`, or plugin-specific player commands.
 
 ---
 

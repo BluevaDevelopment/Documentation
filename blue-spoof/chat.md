@@ -10,8 +10,8 @@
 
 The Chat module makes fake players send messages in chat. There are two independent subsystems:
 
-- **AI Messages** — Generate realistic chat messages using cloud AI providers
-- **Configurable Messages** — Use manually written messages from predefined lists
+- **AI Messages** - Generate realistic chat messages using cloud AI providers
+- **Configurable Messages** - Use manually written messages from predefined lists
 
 Both subsystems can be enabled at the same time, but they serve different purposes. AI messages adapt dynamically to context, while configurable messages are predictable and require no external API.
 
@@ -126,10 +126,10 @@ Reply with preset answers when real players say specific trigger phrases.
 | `chat.sub_modules.configurable_messages.interactions.required_real_players` | Minimum real players online | `5` |
 
 Each interaction entry contains:
-- `trigger` — List of phrases that trigger the reply (case-insensitive partial match)
-- `answers` — List of possible replies (one is chosen at random)
-- `options.response_chance` — Probability (0-100) that a fake player will reply
-- `options.wait_per_letter` — Simulated typing delay
+- `trigger` - List of phrases that trigger the reply (case-insensitive partial match)
+- `answers` - List of possible replies (one is chosen at random)
+- `options.response_chance` - Probability (0-100) that a fake player will reply
+- `options.wait_per_letter` - Simulated typing delay
 
 Example:
 

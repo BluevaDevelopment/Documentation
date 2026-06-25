@@ -208,10 +208,10 @@ The achievements menu shows:
 
 ## Tips
 
-1. **Check regularly** — New achievements may be added with updates.
-2. **Focus on phases** — Complete one phase at a time.
-3. **Play variety** — Different minigames have different achievements.
-4. **Collect rewards** — Don't forget to claim your earned rewards.
+1. **Check regularly** - New achievements may be added with updates.
+2. **Focus on phases** - Complete one phase at a time.
+3. **Play variety** - Different minigames have different achievements.
+4. **Collect rewards** - Don't forget to claim your earned rewards.
 
 ---
 

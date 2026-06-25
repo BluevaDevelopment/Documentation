@@ -515,42 +515,42 @@ mvn clean package
 
 ## Module Lifecycle
 
-1. **onLoad()** — Called once when server starts.
+1. **onLoad()** - Called once when server starts.
    - Register stats, vote menu, setup commands.
    - Initialize configuration.
 
-2. **onStart()** — Called when arena selects this game.
+2. **onStart()** - Called when arena selects this game.
    - Initialize game state.
    - Prepare arena.
 
-3. **onCountdownTick()** — Called every second during countdown.
+3. **onCountdownTick()** - Called every second during countdown.
    - Send countdown titles/sounds.
 
-4. **onCountdownFinish()** — Called when countdown ends.
+4. **onCountdownFinish()** - Called when countdown ends.
    - Send "GO!" message.
 
-5. **onGameStart()** — Called after countdown.
+5. **onGameStart()** - Called after countdown.
    - Start game timers.
    - Enable game mechanics.
 
-6. **onEnd()** — Called when game ends.
+6. **onEnd()** - Called when game ends.
    - Record statistics.
    - Clean up game state.
 
-7. **onDisable()** — Called when module unloads.
+7. **onDisable()** - Called when module unloads.
    - Clean up resources.
 
 ---
 
 ## Best Practices
 
-1. **Use the Context** — The `GameContext` provides all necessary APIs.
-2. **Clean up properly** — Reset state in `onEnd()` and `onDisable()`.
-3. **Handle null checks** — APIs may return null if disabled.
-4. **Register stats early** — Do it in `onLoad()`.
-5. **Use configuration** — Make your module configurable.
-6. **Test thoroughly** — Test with multiple players and edge cases.
-7. **Stay API-only** — Modules must never depend on Core internals.
+1. **Use the Context** - The `GameContext` provides all necessary APIs.
+2. **Clean up properly** - Reset state in `onEnd()` and `onDisable()`.
+3. **Handle null checks** - APIs may return null if disabled.
+4. **Register stats early** - Do it in `onLoad()`.
+5. **Use configuration** - Make your module configurable.
+6. **Test thoroughly** - Test with multiple players and edge cases.
+7. **Stay API-only** - Modules must never depend on Core internals.
 
 ---
 
@@ -558,23 +558,23 @@ mvn clean package
 
 Check out official module source code for reference:
 
-- [Race](https://github.com/BluevaDevelopment/BlueArcade_Race) — Simple race game
-- [Spleef](https://github.com/BluevaDevelopment/BlueArcade_Spleef) — Block breaking
-- [Snowball Fight](https://github.com/BluevaDevelopment/BlueArcade_SnowballFight) — PvP combat
+- [Race](https://github.com/BluevaDevelopment/BlueArcade_Race) - Simple race game
+- [Spleef](https://github.com/BluevaDevelopment/BlueArcade_Spleef) - Block breaking
+- [Snowball Fight](https://github.com/BluevaDevelopment/BlueArcade_SnowballFight) - PvP combat
 
 ---
 
 ## API Reference
 
 The BlueArcade API is available at:
-- **JitPack**: `com.github.BluevaDevelopment:BlueArcadeAPI` — use the latest release tag
+- **JitPack**: `com.github.BluevaDevelopment:BlueArcadeAPI` - use the latest release tag
 - **GitHub**: [BlueArcadeAPI](https://github.com/BluevaDevelopment/BlueArcadeAPI)
 
 Key interfaces and classes:
-- `GameModule` — Main module interface
-- `GameContext` — Game state and APIs
-- `ModuleAPI` — Access to all APIs
-- `StatsAPI` — Statistics tracking
-- `VoteMenuAPI` — Vote menu registration
-- `AchievementsAPI` — Achievement registration
-- `GameSetupHandler` — Setup command handling
+- `GameModule` - Main module interface
+- `GameContext` - Game state and APIs
+- `ModuleAPI` - Access to all APIs
+- `StatsAPI` - Statistics tracking
+- `VoteMenuAPI` - Vote menu registration
+- `AchievementsAPI` - Achievement registration
+- `GameSetupHandler` - Setup command handling

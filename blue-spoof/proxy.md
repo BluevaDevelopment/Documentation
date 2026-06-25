@@ -120,11 +120,11 @@ counter_spoof:
     '21': 8
 ```
 
-- `min_extra` — Always add at least this many players
-- `percent_extra` — Add this percentage on top of the real + fake total
-- `max_extra` — Cap the extra players added (-1 = no cap)
-- `max_online` — Hard cap for the final visible count (-1 = no cap)
-- `hourly_percent` — Additional percentage by hour of day
+- `min_extra` - Always add at least this many players
+- `percent_extra` - Add this percentage on top of the real + fake total
+- `max_extra` - Cap the extra players added (-1 = no cap)
+- `max_online` - Hard cap for the final visible count (-1 = no cap)
+- `hourly_percent` - Additional percentage by hour of day
 
 ## Important Notes
 

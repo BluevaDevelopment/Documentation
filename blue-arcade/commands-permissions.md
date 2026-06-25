@@ -3,9 +3,9 @@
 Complete reference for all Blue Arcade commands and permissions.
 
 **Notation:**
-- `[required]` — Required parameter
-- `(optional)` — Optional parameter
-- `<option1|option2>` — Choose one option
+- `[required]` - Required parameter
+- `(optional)` - Optional parameter
+- `<option1|option2>` - Choose one option
 
 ---
 
@@ -201,20 +201,20 @@ You must be looking at an empty sign block when using these commands.
 
 ### Reload Targets
 
-- `all` — Reload everything
-- `settings` — Plugin settings
-- `rewards` — Reward configurations
-- `sounds` — Sound configurations
-- `lang` — Language files
-- `menus` — Menu definitions
-- `achievements` — Achievement configurations
-- `global` — Global settings
-- `signs` — Sign configurations
-- `arenas` — Arena configurations
-- `games` — Game configurations
-- `users` — User data
-- `store` — Store configurations
-- `data` — All data files
+- `all` - Reload everything
+- `settings` - Plugin settings
+- `rewards` - Reward configurations
+- `sounds` - Sound configurations
+- `lang` - Language files
+- `menus` - Menu definitions
+- `achievements` - Achievement configurations
+- `global` - Global settings
+- `signs` - Sign configurations
+- `arenas` - Arena configurations
+- `games` - Game configurations
+- `users` - User data
+- `store` - Store configurations
+- `data` - All data files
 
 ---
 

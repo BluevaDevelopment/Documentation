@@ -554,7 +554,7 @@ mvn clean package
 
 ## Example Modules
 
-Check out official module source code for reference (Minecraft edition — structure and API calls are the same, only Bukkit types differ):
+Check out official module source code for reference (Minecraft edition - structure and API calls are the same, only Bukkit types differ):
 
 - [Race](https://github.com/BluevaDevelopment/BlueArcade_Race) - Simple race game
 - [Spleef](https://github.com/BluevaDevelopment/BlueArcade_Spleef) - Block breaking
@@ -569,7 +569,7 @@ The BlueArcade API is available at:
 - **GitHub**: [BlueArcadeAPI](https://github.com/BluevaDevelopment/BlueArcadeAPI)
 
 The Hytale Server API is available at:
-- **Maven**: `https://maven.hytale.com/release` — `com.hypixel.hytale:Server:<version>`
+- **Maven**: `https://maven.hytale.com/release` - `com.hypixel.hytale:Server:<version>`
 
 Key interfaces and classes:
 - `GameModule` - Main module interface

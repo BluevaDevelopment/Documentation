@@ -14,10 +14,10 @@ The Trace module records real player movement inside defined regions and replays
 
 ## How It Works
 
-1. **Define a region** — Mark a cuboid area where recording should happen.
-2. **Real players enter** — When a real player walks into the region, the plugin records their movement frame by frame.
-3. **Recording is saved** — The captured path is stored with a unique ID.
-4. **Fake players replay** — When a fake player enters the same region (or when you manually trigger it), they replay a random recording from that region.
+1. **Define a region** - Mark a cuboid area where recording should happen.
+2. **Real players enter** - When a real player walks into the region, the plugin records their movement frame by frame.
+3. **Recording is saved** - The captured path is stored with a unique ID.
+4. **Fake players replay** - When a fake player enters the same region (or when you manually trigger it), they replay a random recording from that region.
 
 ---
 

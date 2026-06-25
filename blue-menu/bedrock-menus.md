@@ -8,15 +8,15 @@ Bedrock menus live in `plugins/BlueMenu/menus/bedrock/` and must define `type` a
 ### Shared actions
 Button/component actions accept the same targets as Java menus. Actions run in order after the player makes a selection:
 
-- `CONSOLE;cmd` — runs a console command with placeholders resolved.
-- `PLAYER;cmd` — makes the player run a command (slash automatically added).
-- `MESSAGE;text` — sends a formatted chat message.
-- `BROADCAST;text` — sends a message to all online players and the console.
-- `SOUND;sound;volume;pitch` — plays a sound for the player (volume/pitch optional, defaults to 1.0).
-- `OPEN_MENU;menu_name` — opens another Bedrock menu by name.
-- `REFRESH_MENU` — reopens the currently open menu for the player.
-- `CONNECT;server_name` — sends the player to a proxy server (Bungee/Velocity auto-detected).
-- `CLOSE` — closes the menu (no extra data).
+- `CONSOLE;cmd` - runs a console command with placeholders resolved.
+- `PLAYER;cmd` - makes the player run a command (slash automatically added).
+- `MESSAGE;text` - sends a formatted chat message.
+- `BROADCAST;text` - sends a message to all online players and the console.
+- `SOUND;sound;volume;pitch` - plays a sound for the player (volume/pitch optional, defaults to 1.0).
+- `OPEN_MENU;menu_name` - opens another Bedrock menu by name.
+- `REFRESH_MENU` - reopens the currently open menu for the player.
+- `CONNECT;server_name` - sends the player to a proxy server (Bungee/Velocity auto-detected).
+- `CLOSE` - closes the menu (no extra data).
 
 ### Display conditions
 `display_conditions` can wrap buttons or components. Use a simple list (all true) or an `all`/`any`/`none` map. Conditions support the same operators as Java menus and are evaluated before the element is added; hidden elements are skipped entirely.

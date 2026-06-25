@@ -178,10 +178,10 @@ Give credits to a player. Use `-s` for silent mode (no notification).
 
 The store is configured in YAML files under `plugins/BlueArcade3/store/`:
 
-- `victory_effects.yml` — Victory effect items
-- `death_effects.yml` — Death effect items
-- `kill_effects.yml` — Kill effect items
-- `victory_music.yml` — Victory music tracks
+- `victory_effects.yml` - Victory effect items
+- `death_effects.yml` - Death effect items
+- `kill_effects.yml` - Kill effect items
+- `victory_music.yml` - Victory music tracks
 
 Each item defines:
 - Display name

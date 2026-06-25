@@ -65,7 +65,7 @@ After the first start, BlueSpoof creates the following files inside `plugins/Blu
 
 | File | Purpose |
 |------|---------|
-| `settings.yml` | Global settings — language, cache, proxy sync, GUI toggle |
+| `settings.yml` | Global settings - language, cache, proxy sync, GUI toggle |
 | `nicks.yml` | Pool of names used for fake players |
 | `modules/connection.yml` | Ping spoofing, IP spoofing, batch connect behavior |
 | `modules/movement.yml` | Human-like roaming, sprinting, jumping, idle pauses |

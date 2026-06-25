@@ -17,7 +17,7 @@ We recommend:
 
 - Each match runs in a **fresh temporary world** copied from a saved template.
 - The waiting lobby and each minigame have their own template ZIP.
-- No manual regeneration is needed — the world is deleted and recreated for every match.
+- No manual regeneration is needed - the world is deleted and recreated for every match.
 - Supports **Arena On Demand** for automatic extra instances.
 - Supports **AdvancedSlimePaper** for faster in-memory runtime worlds.
 
@@ -444,8 +444,8 @@ See [Commands & Permissions](commands-permissions.md) for the full proxy configu
 
 ## Tips for Dynamic Arenas
 
-1. **Build small and focused** — only build what players will see; void worlds keep file sizes small.
-2. **Save often** — enable each minigame as soon as its setup is complete.
-3. **Test before going live** — join the arena as a player and run a full match.
-4. **Use on-demand for busy servers** — enable it on popular arenas to avoid turning players away.
-5. **Keep backups** — copy `plugins/BlueArcade3/data/arenas/<id>/` to back up an entire arena.
+1. **Build small and focused** - only build what players will see; void worlds keep file sizes small.
+2. **Save often** - enable each minigame as soon as its setup is complete.
+3. **Test before going live** - join the arena as a player and run a full match.
+4. **Use on-demand for busy servers** - enable it on popular arenas to avoid turning players away.
+5. **Keep backups** - copy `plugins/BlueArcade3/data/arenas/<id>/` to back up an entire arena.

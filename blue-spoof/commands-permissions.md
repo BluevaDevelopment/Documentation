@@ -3,9 +3,9 @@
 Complete reference for all BlueSpoof 3.0 commands and permissions.
 
 **Notation:**
-- `[required]` — Required parameter
-- `(optional)` — Optional parameter
-- `<option1|option2>` — Choose one option
+- `[required]` - Required parameter
+- `(optional)` - Optional parameter
+- `<option1|option2>` - Choose one option
 
 ---
 

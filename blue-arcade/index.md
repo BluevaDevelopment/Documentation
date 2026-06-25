@@ -1,6 +1,6 @@
 # Blue Arcade Documentation
 
-Welcome to the official documentation for **Blue Arcade** — the modular minigames and party-games platform for Minecraft servers.
+Welcome to the official documentation for **Blue Arcade** - the modular minigames and party-games platform for Minecraft servers.
 
 ## What is Blue Arcade?
 
@@ -20,22 +20,22 @@ Blue Arcade is a **generic minigame API and runtime**, not a fixed collection of
 ## Documentation Sections
 
 ### Getting Started
-- [First Steps](first-steps.md) — Installation, requirements, and initial setup
-- [Creating Arenas](arenas.md) — Dynamic arena creation, templates, and configuration
+- [First Steps](first-steps.md) - Installation, requirements, and initial setup
+- [Creating Arenas](arenas.md) - Dynamic arena creation, templates, and configuration
 
 ### Systems
-- [Party System](party-system.md) — Party creation and management
-- [Store](store.md) — Cosmetics shop and credits economy
-- [Achievements](achievements.md) — Achievement system and rewards
-- [Leaderboards & Stats](leaderboards.md) — Statistics and rankings
-- [XP & Levels](levels.md) — Experience and leveling system
+- [Party System](party-system.md) - Party creation and management
+- [Store](store.md) - Cosmetics shop and credits economy
+- [Achievements](achievements.md) - Achievement system and rewards
+- [Leaderboards & Stats](leaderboards.md) - Statistics and rankings
+- [XP & Levels](levels.md) - Experience and leveling system
 
 ### Reference
-- [Commands & Permissions](commands-permissions.md) — Complete command reference
-- [Placeholders](placeholders.md) — PlaceholderAPI integration
+- [Commands & Permissions](commands-permissions.md) - Complete command reference
+- [Placeholders](placeholders.md) - PlaceholderAPI integration
 
 ### For Developers
-- [Creating a Module](developers.md) — Guide to creating custom minigame modules
+- [Creating a Module](developers.md) - Guide to creating custom minigame modules
 
 ---
 
@@ -86,12 +86,12 @@ Minigames are separate modules. Each module has its own store page with detailed
 
 ## Optional Dependencies
 
-- **PlaceholderAPI** — For placeholder support in external plugins
-- **Vault** — Use server economy instead of Blue Arcade credits
-- **NoteBlockAPI** — For victory music playback
-- **Floodgate** — Bedrock player support
-- **WorldEdit** — Schematic generation and large-region operations
-- **AdvancedSlimePaper** — Faster in-memory dynamic arena worlds
+- **PlaceholderAPI** - For placeholder support in external plugins
+- **Vault** - Use server economy instead of Blue Arcade credits
+- **NoteBlockAPI** - For victory music playback
+- **Floodgate** - Bedrock player support
+- **WorldEdit** - Schematic generation and large-region operations
+- **AdvancedSlimePaper** - Faster in-memory dynamic arena worlds
 
 ## Support
 

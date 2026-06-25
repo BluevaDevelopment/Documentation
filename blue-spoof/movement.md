@@ -16,16 +16,16 @@ The Movement module makes fake players move around the world instead of standing
 
 The movement engine runs in a continuous loop for each fake player:
 
-1. **Roam** — Pick a random waypoint within the configured radius and walk to it.
-2. **Observe** — Stop and look around for a random duration.
-3. **Repeat** — Go back to roaming.
+1. **Roam** - Pick a random waypoint within the configured radius and walk to it.
+2. **Observe** - Stop and look around for a random duration.
+3. **Repeat** - Go back to roaming.
 
 Humanization features are layered on top to avoid robotic behavior:
 
-- **Sprint chance** — Bots sometimes sprint instead of walking.
-- **Sprint-jump chance** — Occasional sprint-jumps while moving.
-- **Micro-pauses** — Tiny random stops during movement.
-- **Waypoint stop chance** — Chance to stop at a waypoint instead of immediately moving on.
+- **Sprint chance** - Bots sometimes sprint instead of walking.
+- **Sprint-jump chance** - Occasional sprint-jumps while moving.
+- **Micro-pauses** - Tiny random stops during movement.
+- **Waypoint stop chance** - Chance to stop at a waypoint instead of immediately moving on.
 
 ---
 

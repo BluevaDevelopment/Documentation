@@ -196,10 +196,10 @@ Level is not tracked on leaderboards by default, but XP can be added as a custom
 
 ## Tips
 
-1. **Play regularly** — XP accumulates over time.
-2. **Win games** — Winners typically earn more XP.
-3. **Complete achievements** — Extra XP bonuses.
-4. **Check progress** — Use `/ba level` to see how close you are.
+1. **Play regularly** - XP accumulates over time.
+2. **Win games** - Winners typically earn more XP.
+3. **Complete achievements** - Extra XP bonuses.
+4. **Check progress** - Use `/ba level` to see how close you are.
 
 ---
 

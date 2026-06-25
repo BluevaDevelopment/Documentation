@@ -160,9 +160,9 @@ Use the format `module:stat`:
 
 The leaderboard shows:
 
-1. **Position** — Ranking number.
-2. **Player Name** — Who holds this position.
-3. **Value** — The stat value.
+1. **Position** - Ranking number.
+2. **Player Name** - Who holds this position.
+3. **Value** - The stat value.
 
 ### Menu View
 
@@ -261,10 +261,10 @@ Data includes:
 
 ## Tips
 
-1. **Check daily leaderboards** — Compete for daily rankings.
-2. **Specialize** — Focus on specific minigames to top those leaderboards.
-3. **Watch periods reset** — Get an early lead at the start of each period.
-4. **Balance stats** — Some achievements require varied statistics.
+1. **Check daily leaderboards** - Compete for daily rankings.
+2. **Specialize** - Focus on specific minigames to top those leaderboards.
+3. **Watch periods reset** - Get an early lead at the start of each period.
+4. **Balance stats** - Some achievements require varied statistics.
 
 ---
 

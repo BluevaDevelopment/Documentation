@@ -21,23 +21,23 @@ Player heads and model data are supported when `material` is `PLAYER_HEAD`:
 ### Attributes
 Add optional `attributes:` entries to change flags or enchants:
 
-- `[ENCHANTMENT] namespace;level` — adds an enchantment at the desired level.
-- `[BOOLEAN] FLAG_NAME;true|false` — toggles an `ItemFlag` such as `HIDE_ATTRIBUTES` or `HIDE_ENCHANTS`.
+- `[ENCHANTMENT] namespace;level` - adds an enchantment at the desired level.
+- `[BOOLEAN] FLAG_NAME;true|false` - toggles an `ItemFlag` such as `HIDE_ATTRIBUTES` or `HIDE_ENCHANTS`.
 
 Attributes are applied after the item is built so they also work on animation frames.
 
 ### Actions and click handling
 Actions are evaluated per click type. Use `[LEFT_CLICK]`, `[RIGHT_CLICK]`, or `[BOTH]` followed by a space and the action payload. Supported targets are:
 
-- `CONSOLE;command` — runs a console command with placeholders resolved.
-- `PLAYER;command` — makes the player run a command (slash automatically added).
-- `MESSAGE;text` — sends a formatted chat message.
-- `BROADCAST;text` — sends a message to all online players and the console.
-- `SOUND;sound;volume;pitch` — plays a sound for the clicking player (volume/pitch optional, defaults to 1.0).
-- `OPEN_MENU;menu_name` — opens another Java menu by name.
-- `REFRESH_MENU` — reopens the currently open menu for the player.
-- `CONNECT;server_name` — sends the player to a proxy server (Bungee/Velocity auto-detected).
-- `CLOSE` — closes the inventory (no extra data).
+- `CONSOLE;command` - runs a console command with placeholders resolved.
+- `PLAYER;command` - makes the player run a command (slash automatically added).
+- `MESSAGE;text` - sends a formatted chat message.
+- `BROADCAST;text` - sends a message to all online players and the console.
+- `SOUND;sound;volume;pitch` - plays a sound for the clicking player (volume/pitch optional, defaults to 1.0).
+- `OPEN_MENU;menu_name` - opens another Java menu by name.
+- `REFRESH_MENU` - reopens the currently open menu for the player.
+- `CONNECT;server_name` - sends the player to a proxy server (Bungee/Velocity auto-detected).
+- `CLOSE` - closes the inventory (no extra data).
 
 Only actions that match the actual click type execute.
 

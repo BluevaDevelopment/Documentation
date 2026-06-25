@@ -189,10 +189,10 @@ When the party leader joins an arena:
 
 ## Tips
 
-1. **Create a party before joining** — Form your group in the lobby.
-2. **Check party size** — Make sure the arena can fit your entire party.
-3. **Use public parties** — Great way to find players when playing solo.
-4. **Leadership transfer** — Transfer leadership before leaving if you want the party to continue.
+1. **Create a party before joining** - Form your group in the lobby.
+2. **Check party size** - Make sure the arena can fit your entire party.
+3. **Use public parties** - Great way to find players when playing solo.
+4. **Leadership transfer** - Transfer leadership before leaving if you want the party to continue.
 
 ---
 
