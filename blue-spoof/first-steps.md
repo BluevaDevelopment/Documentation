@@ -4,14 +4,18 @@
 
 Download BlueSpoof from one of the official stores:
 
-- [Blueva Store](https://blueva.net/store)
+- [Blueva Store]([https://blueva.net/store](https://blueva.net/store/blue-spoof))
+- [BuiltByBit]([https://builtbybit.com/resources/blue-spoof-ai-powered-fake-players.36987/])
+- [voxel.shop]([https://voxel.shop/product/1912/blue-spoof])
+- [Magmaro]([https://magmaro.com/resources/blue-spoof-ai-powered-fake-players-FIouNjt4yQWD?tab=description])
+- [PixelEast]([https://pixeleast.com/product/720265-blue-spoof-aipowered-fake])
 
 ## Server Requirements
 
 Before installing, ensure your server meets these requirements:
 
 - **Spigot** or any fork (Paper, Purpur, Folia, etc.)
-- **Minecraft 1.21.11 or 26.1**
+- **Minecraft 1.21 to 26.2**
 - **Java 21** or higher
 - **1-2 GB RAM** minimum (excluding other plugins and players)
 
