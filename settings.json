@@ -6,7 +6,7 @@
       "description": "Modular minigame plugin. Create and manage a variety of minigames with ease.",
       "folder": "Blue Arcade 3",
       "github_folder": "blue-arcade",
-      "tags": ["Gameplay", "Minigame", "Fun", "Spigot", "Modular", "1.21-26.1"],
+      "tags": ["Gameplay", "Minigame", "Fun", "Spigot", "Modular", "1.18-26.2"],
       "pages": [
         {"title": "Index", "file": "index.md"},
         {"title": "First Steps", "file": "first-steps.md"},
@@ -92,7 +92,7 @@
       "description": "AI-powered fake player solution for Minecraft servers.",
       "folder": "BlueSpoof",
       "github_folder": "blue-spoof",
-      "tags": ["Fake Players", "AI", "Spigot", "BungeeCord", "Velocity", "Folia", "1.21.11-26.1"],
+      "tags": ["Fake Players", "AI", "Spigot", "BungeeCord", "Velocity", "Folia", "1.21.11-26.2"],
       "pages": [
         {"title": "Index", "file": "index.md"},
         {"title": "First Steps", "file": "first-steps.md"},
@@ -129,7 +129,7 @@
       "description": "Advanced menu solution with Java/Bedrock Support and Web Editor.",
       "folder": "Blue Menu",
       "github_folder": "blue-menu",
-      "tags": ["Java GUI", "Bedrock Forms", "Web App", "Floodgate", "Geyser", "1.21-1.21.11"],
+      "tags": ["Java GUI", "Bedrock Forms", "Web App", "Floodgate", "Geyser", "1.21-26.1"],
       "pages": [
         {"title": "First Steps", "file": "first-steps.md"},
         {"title": "Commands and Permissions", "file": "commands-and-permissions.md"},
