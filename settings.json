@@ -1,0 +1,163 @@
+{
+  "projects": [
+    {
+      "id": "blue-arcade",
+      "title": "Blue Arcade 3",
+      "description": "Modular minigame plugin. Create and manage a variety of minigames with ease.",
+      "folder": "Blue Arcade 3",
+      "github_folder": "blue-arcade",
+      "tags": ["Gameplay", "Minigame", "Fun", "Spigot", "Modular", "1.21-26.1"],
+      "pages": [
+        {"title": "Index", "file": "index.md"},
+        {"title": "First Steps", "file": "first-steps.md"},
+        {"title": "Creating Arenas", "file": "arenas.md"},
+        {"title": "Party System", "file": "party-system.md"},
+        {"title": "Store", "file": "store.md"},
+        {"title": "Achievements", "file": "achievements.md"},
+        {"title": "Leaderboards & Stats", "file": "leaderboards.md"},
+        {"title": "XP & Levels", "file": "levels.md"},
+        {"title": "Commands & Permissions", "file": "commands-permissions.md"},
+        {"title": "Placeholders", "file": "placeholders.md"},
+        {"title": "Creating a Module", "file": "developers.md"}
+      ]
+    },
+    {
+      "id": "blue-arcade-hytale",
+      "title": "Blue Arcade 3 (Hytale Edition)",
+      "description": "Modular minigame plugin. Create and manage a variety of minigames with ease.",
+      "folder": "Blue Arcade 3 (Hytale Edition)",
+      "github_folder": "blue-arcade-hytale",
+      "tags": ["Gameplay", "Minigame", "Fun", "Hytale", "Modular"],
+      "pages": [
+        {"title": "Index", "file": "index.md"},
+        {"title": "First Steps", "file": "first-steps.md"},
+        {"title": "Creating Arenas", "file": "arenas.md"},
+        {"title": "Party System", "file": "party-system.md"},
+        {"title": "Store", "file": "store.md"},
+        {"title": "Achievements", "file": "achievements.md"},
+        {"title": "Leaderboards & Stats", "file": "leaderboards.md"},
+        {"title": "XP & Levels", "file": "levels.md"},
+        {"title": "Commands & Permissions", "file": "commands-permissions.md"},
+        {"title": "Placeholders", "file": "placeholders.md"},
+        {"title": "Creating a Module", "file": "developers.md"}
+      ]
+    },
+    {
+      "id": "blue-premium",
+      "title": "Blue Premium",
+      "description": "Authentication plugin for mixed premium and cracked Minecraft networks, with JPremium migration support.",
+      "folder": "Blue Premium",
+      "github_folder": "blue-premium",
+      "tags": ["Authentication", "Premium", "Cracked", "BungeeCord", "Velocity", "Spigot", "Migration", "1.8+"],
+      "pages": [
+        {"title": "Index", "file": "index.md"},
+        {"title": "First Steps", "file": "first-steps.md"},
+        {"title": "Installation", "file": "installation.md"},
+        {"title": "Configuration", "file": "configuration.md"},
+        {"title": "Database", "file": "database.md"},
+        {"title": "Authentication & Security", "file": "authentication-security.md"},
+        {"title": "Backend & Captcha", "file": "backend-captcha.md"},
+        {"title": "Email Recovery & TOTP", "file": "email-totp.md"},
+        {"title": "Multi-Proxy & Floodgate", "file": "multi-proxy-floodgate.md"},
+        {"title": "Messages & Languages", "file": "messages-languages.md"},
+        {"title": "Commands & Permissions", "file": "commands-permissions.md"},
+        {"title": "Placeholders", "file": "placeholders.md"},
+        {"title": "API & Events", "file": "api-events.md"},
+        {"title": "JPremium Migration", "file": "jpremium-migration.md"},
+        {"title": "Runtime Validation", "file": "runtime-validation.md"},
+        {"title": "Common Issues", "file": "common-issues.md"}
+      ]
+    },
+    {
+      "id": "blue-translate",
+      "title": "Blue Translate",
+      "description": "Break the language barrier.",
+      "folder": "Blue Translate",
+      "github_folder": "blue-translate",
+      "tags": ["Translation", "Language", "Communication", "Spigot", "1.21-26.1"],
+      "pages": [
+        {"title": "First Steps", "file": "first-steps.md"},
+        {"title": "Commands & Permissions", "file": "commands-and-permissions.md"},
+        {"title": "Configuration", "file": "configuration.md"},
+        {"title": "Translation Engines", "file": "translation-engines.md"},
+        {"title": "Supported Languages", "file": "supported-languages.md"},
+        {"title": "Manual Translations", "file": "manual-translations.md"},
+        {"title": "Placeholders", "file": "placeholderapi.md"},
+        {"title": "Common Issues", "file": "common-issues.md"}
+      ]
+    },
+    {
+      "id": "bluespoof",
+      "title": "BlueSpoof",
+      "description": "AI-powered fake player solution for Minecraft servers.",
+      "folder": "BlueSpoof",
+      "github_folder": "blue-spoof",
+      "tags": ["Fake Players", "AI", "Spigot", "BungeeCord", "Velocity", "Folia", "1.21.11-26.1"],
+      "pages": [
+        {"title": "Index", "file": "index.md"},
+        {"title": "First Steps", "file": "first-steps.md"},
+        {"title": "Commands & Permissions", "file": "commands-permissions.md"},
+        {"title": "Placeholders", "file": "placeholders.md"},
+        {"title": "Connection Module", "file": "connection.md"},
+        {"title": "Movement Module", "file": "movement.md"},
+        {"title": "Trace Module", "file": "trace.md"},
+        {"title": "Chat Module", "file": "chat.md"},
+        {"title": "Fluctuation Module", "file": "fluctuation.md"},
+        {"title": "Events Module", "file": "events.md"},
+        {"title": "Ranks Module", "file": "ranks.md"},
+        {"title": "Discretion Module", "file": "discretion.md"},
+        {"title": "BlueSpoofProxy", "file": "proxy.md"}
+      ]
+    },
+    {
+      "id": "blue-arcade-2",
+      "title": "Blue Arcade 2 (Legacy)",
+      "description": "Old version of Blue Arcade. This documentation will be maintained until 2027.",
+      "folder": "Blue Arcade 2",
+      "github_folder": "blue-arcade-legacy",
+      "tags": ["Gameplay", "Minigame", "Fun", "Spigot", "1.21-1.21.11"],
+      "pages": [
+        {"title": "First Steps", "file": "first-steps.md"},
+        {"title": "Commands & Permissions", "file": "commands-permissions.md"},
+        {"title": "Set up a mini-game", "file": "set-up-a-mini-game.md"},
+        {"title": "Placeholders", "file": "placeholders.md"}
+      ]
+    },
+    {
+      "id": "blue-menu",
+      "title": "Blue Menu",
+      "description": "Advanced menu solution with Java/Bedrock Support and Web Editor.",
+      "folder": "Blue Menu",
+      "github_folder": "blue-menu",
+      "tags": ["Java GUI", "Bedrock Forms", "Web App", "Floodgate", "Geyser", "1.21-1.21.11"],
+      "pages": [
+        {"title": "First Steps", "file": "first-steps.md"},
+        {"title": "Commands and Permissions", "file": "commands-and-permissions.md"},
+        {"title": "Java Menus", "file": "java-menus.md"},
+        {"title": "Bedrock Menus", "file": "bedrock-menus.md"},
+        {"title": "Conditions", "file": "conditions.md"},
+        {"title": "Menu Registration", "file": "menu-registration.md"}
+      ]
+    },
+    {
+      "id": "blue-worlds",
+      "title": "Blue Worlds",
+      "description": "Advanced world management plugin with private worlds, templates, flags and backup tools.",
+      "folder": "Blue Worlds",
+      "github_folder": "blue-worlds",
+      "tags": ["Worlds", "Management", "Private Worlds", "Templates", "Spigot"],
+      "pages": [
+        {"title": "Index", "file": "index.md"},
+        {"title": "First Steps", "file": "first-steps.md"},
+        {"title": "Commands & Permissions", "file": "commands-permissions.md"},
+        {"title": "Global Worlds", "file": "global-worlds.md"},
+        {"title": "Private Worlds", "file": "private-worlds.md"},
+        {"title": "Templates", "file": "templates.md"},
+        {"title": "World Flags", "file": "world-flags.md"},
+        {"title": "Access Control", "file": "access-control.md"},
+        {"title": "Backup Management", "file": "backup-management.md"},
+        {"title": "Placeholders", "file": "placeholders.md"}
+      ]
+    }
+  ]
+}
