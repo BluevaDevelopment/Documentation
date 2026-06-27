@@ -17,7 +17,7 @@ We recommend:
 
 - Each match runs in a **fresh temporary world** copied from a saved template.
 - The waiting lobby and each minigame have their own template ZIP.
-- No manual regeneration is needed - the world is deleted and recreated for every match.
+- No regeneration is needed - the world is deleted and recreated for every match.
 - Supports **Arena On Demand** for automatic extra instances.
 - Supports **AdvancedSlimePaper** for faster in-memory runtime worlds.
 
@@ -36,7 +36,7 @@ We recommend:
 - Players play the same game repeatedly.
 - Best for dedicated servers (for example, a "Spleef Server").
 
-### Party Mode (Recommended)
+### Party Mode
 
 - Multiple minigames with rounds.
 - Players vote for the next minigame or follow a fixed order.
