@@ -138,26 +138,6 @@
         {"title": "Conditions", "file": "conditions.md"},
         {"title": "Menu Registration", "file": "menu-registration.md"}
       ]
-    },
-    {
-      "id": "blue-worlds",
-      "title": "Blue Worlds",
-      "description": "Advanced world management plugin with private worlds, templates, flags and backup tools.",
-      "folder": "Blue Worlds",
-      "github_folder": "blue-worlds",
-      "tags": ["Worlds", "Management", "Private Worlds", "Templates", "Spigot"],
-      "pages": [
-        {"title": "Index", "file": "index.md"},
-        {"title": "First Steps", "file": "first-steps.md"},
-        {"title": "Commands & Permissions", "file": "commands-permissions.md"},
-        {"title": "Global Worlds", "file": "global-worlds.md"},
-        {"title": "Private Worlds", "file": "private-worlds.md"},
-        {"title": "Templates", "file": "templates.md"},
-        {"title": "World Flags", "file": "world-flags.md"},
-        {"title": "Access Control", "file": "access-control.md"},
-        {"title": "Backup Management", "file": "backup-management.md"},
-        {"title": "Placeholders", "file": "placeholders.md"}
-      ]
     }
   ]
 }
