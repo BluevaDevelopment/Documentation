@@ -173,7 +173,7 @@ public class MyModule implements GameModule<Player, Location, World, String,
         coreConfig = ModuleAPI.getCoreConfig();
 
         // Register configuration files (optional)
-        moduleConfig.register("language.yml", 1);
+        moduleConfig.register("language/en.yml");
     }
 
     @Override
@@ -428,7 +428,7 @@ public void onLoad() {
     // ... other initialization ...
 
     // Register achievement config file
-    moduleConfig.register("achievements.yml", 1);
+    moduleConfig.register("achievements.yml");
 
     // Load achievements
     AchievementsAPI achievementsAPI = ModuleAPI.getAchievementsAPI();
