@@ -22,6 +22,7 @@ Blue Arcade is a **generic minigame API and runtime**, not a fixed collection of
 ### Getting Started
 - [First Steps](first-steps.md) - Installation, requirements, and initial setup
 - [Creating Arenas](arenas.md) - Dynamic arena creation, templates, and configuration
+- [Why Dynamic Arenas](dynamic-arenas.md) - Why Blue Arcade is moving away from static arenas
 
 ### Systems
 - [Party System](party-system.md) - Party creation and management

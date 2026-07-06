@@ -11,6 +11,7 @@
         {"title": "Index", "file": "index.md"},
         {"title": "First Steps", "file": "first-steps.md"},
         {"title": "Creating Arenas", "file": "arenas.md"},
+        {"title": "Why Dynamic Arenas", "file": "dynamic-arenas.md"},
         {"title": "Party System", "file": "party-system.md"},
         {"title": "Store", "file": "store.md"},
         {"title": "Achievements", "file": "achievements.md"},
