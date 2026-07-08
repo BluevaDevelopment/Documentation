@@ -63,13 +63,13 @@ libretranslate:
 
 **Engine type value:** `google`
 
-Uses the [Google Cloud Translation API v2](https://cloud.google.com/translate/docs/reference/rest/v2).
+Uses Google Cloud Translation API v2. See the official [Cloud Translation setup guide](https://docs.cloud.google.com/translate/docs/setup) and the [v2 translate REST method](https://docs.cloud.google.com/translate/docs/reference/rest/v2/translate).
 
 ### Setup
 
-1. Create or select a project in [Google Cloud Console](https://console.cloud.google.com/).
-2. Enable the **Cloud Translation API**.
-3. Create an **API key** under *APIs & Services → Credentials*.
+1. Follow Google's [Cloud Translation setup guide](https://docs.cloud.google.com/translate/docs/setup) to create/select a project, enable billing, and enable the **Cloud Translation API**.
+2. In [Google Cloud Console](https://console.cloud.google.com/), create an **API key** under *APIs & Services → Credentials*.
+3. Restrict the key to the Cloud Translation API when possible.
 4. Copy the API key into the configuration.
 
 ### Configuration
@@ -97,7 +97,7 @@ translation:
 
 **Engine type value:** `deepl`
 
-Uses the [DeepL API](https://developers.deepl.com/api-reference). Both Free and Pro tiers are supported.
+Uses the [DeepL API](https://developers.deepl.com/api-reference/translate). Both Free and Pro tiers are supported.
 
 ### Setup
 
@@ -129,12 +129,13 @@ translation:
 
 **Engine type value:** `azure` or `microsoft`
 
-Uses [Microsoft Azure Cognitive Services Translator](https://learn.microsoft.com/azure/ai-services/translator/).
+Uses [Microsoft Azure Translator](https://learn.microsoft.com/azure/ai-services/translator/) with the [Translator v3 REST API](https://learn.microsoft.com/azure/ai-services/translator/text-translation/reference/v3/translate).
 
 ### Setup
 
 1. In the [Azure Portal](https://portal.azure.com/), create a **Translator** resource.
-2. Navigate to *Keys and Endpoint* and copy your API key and region.
+2. Navigate to *Keys and Endpoint* and copy your API key.
+3. Copy the region too if your resource is regional or multi-service. Leave it blank only for a global Translator resource.
 
 ### Configuration
 
@@ -153,7 +154,7 @@ translation:
 | Key | Default | Description |
 |-----|---------|-------------|
 | `api_key` | `""` | Your Azure Translator API key. |
-| `region` | `""` | Azure region/location (e.g. `"eastus"`, `"westeurope"`). |
+| `region` | `""` | Azure region/location (e.g. `"eastus"`, `"westeurope"`). Required for regional or multi-service resources; leave blank only for global Translator resources. |
 | `endpoint` | `https://api.cognitive.microsofttranslator.com` | API endpoint. Keep the default unless Azure instructs otherwise. |
 | `timeout_seconds` | `10` | Request timeout in seconds. |
 
@@ -163,7 +164,7 @@ translation:
 
 **Engine type value:** `openai`
 
-Uses the [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat) to perform translations. This engine produces highly natural translations but is slower and more expensive than dedicated translation services.
+Uses the [OpenAI Chat Completions API](https://developers.openai.com/api/reference/chat-completions/overview) to perform translations. This engine produces highly natural translations but is slower and more expensive than dedicated translation services.
 
 Compatible with any OpenAI-compatible API (e.g. local models via Ollama or similar proxies).
 
@@ -190,7 +191,7 @@ translation:
 |-----|---------|-------------|
 | `api_key` | `""` | Your OpenAI API key. |
 | `model` | `"gpt-4o-mini"` | OpenAI model to use. `gpt-4o-mini` is recommended for a good balance of quality and cost. |
-| `endpoint` | `https://api.openai.com/v1/chat/completions` | API endpoint. Change this to use a proxy or a self-hosted OpenAI-compatible API. |
+| `endpoint` | `https://api.openai.com/v1/chat/completions` | Chat Completions API endpoint. Change this to use a proxy or a self-hosted OpenAI-compatible API. |
 | `timeout_seconds` | `20` | Request timeout in seconds. Higher timeout recommended for AI models. |
 
 ---
@@ -199,11 +200,11 @@ translation:
 
 **Engine type value:** `amazon`
 
-Uses [Amazon Translate](https://aws.amazon.com/translate/) via AWS Signature V4 authentication.
+Uses [Amazon Translate](https://aws.amazon.com/translate/) via AWS Signature V4 authentication and the [TranslateText API](https://docs.aws.amazon.com/translate/latest/APIReference/API_TranslateText.html).
 
 ### Setup
 
-1. In the [AWS Console](https://console.aws.amazon.com/), create an **IAM user** with the `TranslateReadOnly` policy (or a custom policy granting `translate:TranslateText`).
+1. In the [AWS Console](https://console.aws.amazon.com/), create an IAM user or role with the AWS managed [`TranslateReadOnly`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/TranslateReadOnly.html) policy, or a custom policy granting `translate:TranslateText`.
 2. Generate **access keys** for the user.
 
 ### Configuration
