@@ -20,7 +20,7 @@ First of all, you will need to purchase the plugin from one of the following sto
 - [BuiltByBit](https://builtbybit.com/resources/blue-translate.103628/)
 - [SpigotMC](https://www.spigotmc.org/resources/blue-translate.134317/)
 - [Blueva Store](https://blueva.net/store/blue-translate)
-- [Polymart](https://polymart.org/resource) (SOON)
+- Polymart (SOON)
 
 Once you have purchased it, you must wait for the payment to be processed. Usually it is instantaneous, but there may be exceptions. If the payment takes more than 24 h to be processed, please contact us.
 
