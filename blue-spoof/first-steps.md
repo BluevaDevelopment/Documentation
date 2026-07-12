@@ -15,9 +15,10 @@ Download BlueSpoof from one of the official stores:
 Before installing, ensure your server meets these requirements:
 
 - **Spigot** or any fork (Paper, Purpur, Folia, etc.)
-- **Minecraft 1.21 to 26.2**
-- **Java 21** or higher
+- **Minecraft 1.8.8 to 26.2** a single JAR works on every supported version
+- **Java 8** or higher for 1.8.8–1.16.5 servers; **Java 21** or higher for 1.17+ servers
 - **1-2 GB RAM** minimum (excluding other plugins and players)
+- **Internet access on first startup** the plugin downloads its required libraries (database drivers, etc.) once into `plugins/BlueSpoof/libraries/`
 
 ## Installation
 

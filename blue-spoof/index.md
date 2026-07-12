@@ -38,8 +38,8 @@ BlueSpoof 3.0 is a complete rewrite of the plugin formerly known as Spoof Engine
 
 ## Requirements
 
-- **Server**: Spigot 1.21.11 or 26.1 (Paper, Purpur, Folia, and other forks supported)
-- **Java**: 21 or higher
+- **Server**: Spigot 1.8.8 to 26.2 (Paper, Purpur, Folia, and other forks supported)
+- **Java**: 8 or higher for 1.8.8–1.16.5 servers; 21 or higher for 1.17+ servers
 - **RAM**: 1-2 GB minimum (depending on fake player count)
 
 ## Optional Dependencies
