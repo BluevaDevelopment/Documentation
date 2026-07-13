@@ -8,7 +8,7 @@ Download BlueSpoof from one of the official stores:
 - [BuiltByBit]([https://builtbybit.com/resources/blue-spoof-ai-powered-fake-players.36987/])
 - [voxel.shop]([https://voxel.shop/product/1912/blue-spoof])
 - [Magmaro]([https://magmaro.com/resources/blue-spoof-ai-powered-fake-players-FIouNjt4yQWD?tab=description])
-- [PixelEast]([https://pixeleast.com/product/720265-blue-spoof-aipowered-fake])
+- [PixelEast]([https://pixeleast.com/product/spoof])
 
 ## Server Requirements
 
