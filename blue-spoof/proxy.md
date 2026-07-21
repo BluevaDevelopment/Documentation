@@ -1,12 +1,13 @@
-# BlueSpoofProxy
+# Proxy Sync
 
-BlueSpoofProxy synchronizes fake player counts between backend Minecraft servers and your proxy (BungeeCord or Velocity). This makes the proxy's online player count include fake players.
+BlueSpoof synchronizes fake player counts between backend Minecraft servers and your proxy (BungeeCord or Velocity). This makes the proxy's online player count include fake players.
 
 ## Installation
 
-1. **Download** `BlueSpoofProxy-Bungee.jar` or `BlueSpoofProxy-Velocity.jar` depending on your proxy software
-2. **Place** the JAR in your proxy's `plugins` folder
-3. **Restart** the proxy
+BlueSpoof uses the same JAR on the proxy — there is no separate proxy plugin to download.
+
+1. **Place** the same `BlueSpoof.jar` you use on your backend servers in your proxy's `plugins` folder
+2. **Restart** the proxy
 
 ## Supported Proxy Software
 

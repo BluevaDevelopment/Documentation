@@ -34,7 +34,7 @@ BlueSpoof 3.0 is a complete rewrite of the plugin formerly known as Spoof Engine
 - [Discretion](discretion.md) - Hide BlueSpoof branding in console and commands
 
 ### Proxy
-- [BlueSpoofProxy](proxy.md) - BungeeCord/Velocity proxy setup
+- [Proxy Sync](proxy.md) - BungeeCord/Velocity proxy setup
 
 ## Requirements
 

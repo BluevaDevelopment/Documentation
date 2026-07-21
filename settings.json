@@ -107,7 +107,7 @@
         {"title": "Events Module", "file": "events.md"},
         {"title": "Ranks Module", "file": "ranks.md"},
         {"title": "Discretion Module", "file": "discretion.md"},
-        {"title": "BlueSpoofProxy", "file": "proxy.md"}
+        {"title": "Proxy Sync", "file": "proxy.md"}
       ]
     },
     {

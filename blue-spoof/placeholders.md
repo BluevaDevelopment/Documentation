@@ -20,7 +20,7 @@ BlueSpoof provides PlaceholderAPI integration for use in scoreboards, holograms,
 
 ## Proxy Placeholders
 
-These require proxy sync to be configured in `settings.yml` and BlueSpoofProxy to be installed on the proxy.
+These require proxy sync to be configured in `settings.yml` and BlueSpoof to be installed on the proxy.
 
 | Placeholder | Description |
 |-------------|-------------|
