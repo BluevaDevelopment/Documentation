@@ -25,8 +25,8 @@ We recommend:
 
 - Uses a persistent world you build or import yourself.
 - Only the configured game region is restored between matches using block snapshots.
-- Still available for backward compatibility, but **static arenas will be deprecated**.
-- This guide focuses on dynamic arenas; most commands still apply to static arenas unless noted.
+- **New static arenas can no longer be created since 3.5.0**, and existing ones will stop working in 3.6 or 3.7. Migrate them with `/baa migrate [id]`.
+- This guide covers dynamic arenas; most commands still apply to the static arenas you already have.
 
 ## Arena Modes
 
@@ -48,15 +48,16 @@ We recommend:
 ### Step 1: Create
 
 ```
-/baa create [id] <standalone|party> [dynamic|static]
+/baa create [id] <standalone|party>
 ```
 
 **Examples:**
 ```
-/baa create 1 party dynamic
-/baa create 2 standalone dynamic
-/baa create 3 party           # type defaults to dynamic
+/baa create 1 party
+/baa create 2 standalone
 ```
+
+Every arena created this way is dynamic.
 
 **Tips:**
 - Use sequential numbers (1, 2, 3...).
@@ -229,14 +230,6 @@ This deletes the arena folder (`plugins/BlueArcade3/data/arenas/<id>/`) includin
 **Restrictions:**
 - Standalone can only have one minigame.
 - Remove extra minigames before switching to standalone.
-
-### Change Type
-
-```
-/baa arena [id] settype <static|dynamic>
-```
-
-**Important:** This only changes the arena type flag. It does **not** convert existing templates or persistent worlds. Use it when you know what you are doing.
 
 ### Arena On Demand
 

@@ -129,7 +129,7 @@ Players earn credits by:
 - Completing achievements
 - Admin rewards (`/baa credits give`)
 
-Credit rewards are configured in `rewards.yml`.
+Credit rewards are configured in `actions.yml`, which replaced `rewards.yml` in 3.5.0.
 
 ---
 

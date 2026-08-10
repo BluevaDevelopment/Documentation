@@ -77,16 +77,16 @@ Choose a mode:
 - **Party**: multiple minigames with rounds and voting (recommended)
 
 ```
-/baa create [id] <standalone|party> [dynamic|static]
+/baa create [id] <standalone|party>
 ```
 
 **Examples:**
 ```
-/baa create 1 party dynamic
-/baa create 2 standalone dynamic
+/baa create 1 party
+/baa create 2 standalone
 ```
 
-If you do not specify a type, the arena is created as **dynamic**.
+Every arena is dynamic.
 
 When you create a dynamic arena, the plugin creates a temporary void world (`ba-temporal-<id>-lobby`) and teleports you into it in Creative mode. Build your waiting lobby there.
 
@@ -167,7 +167,7 @@ For dynamic arenas, this saves the final lobby template and enables the arena.
 | Action | Command |
 |--------|---------|
 | Set main lobby | `/baa setmainlobby` |
-| Create arena | `/baa create [id] <standalone\|party> [dynamic\|static]` |
+| Create arena | `/baa create [id] <standalone\|party>` |
 | Set arena name | `/baa arena [id] setname [name]` |
 | Set arena lobby | `/baa arena [id] setlobby` |
 | Set player limits | `/baa arena [id] minplayers [n]` / `maxplayers [n]` |

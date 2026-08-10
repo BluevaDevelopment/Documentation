@@ -1,6 +1,6 @@
 # Why Blue Arcade Is Moving to Dynamic Arenas
 
-Blue Arcade is moving toward **dynamic arenas** as the recommended and default arena system. Static arenas still work for backward compatibility, but they are considered a legacy system and will be deprecated in a future release.
+Blue Arcade is moving toward **dynamic arenas** as the recommended and default arena system. Since 3.5.0 new static arenas can no longer be created, and the ones you already have will stop working in 3.6 or 3.7. Until then they keep running, so migrate them while there is time.
 
 This change is not only about performance. It also makes Blue Arcade easier to maintain, easier to debug, and ready for features that are not practical with static arenas.
 
@@ -75,7 +75,7 @@ With static arenas, every extra instance would need its own manually prepared pe
 
 ### Replay System
 
-The replay system planned for 3.4 branch is designed around isolated match worlds. Dynamic arenas make it easier to capture, reproduce, and inspect a match without the noise of a persistent world that may have been modified before or after the game.
+The [replay system](replay-system.md) is built around isolated match worlds. A replay is rebuilt inside a fresh copy of the arena template, which is only possible when the match ran in its own world instead of a persistent one that may have been modified before or after the game. Static arenas are not recorded.
 
 ### Easier Debug Sharing
 
@@ -132,6 +132,6 @@ The migration process moves the old arena data folder into the Blue Arcade backu
 
 ## Recommendation
 
-If you are creating a new arena, use the dynamic type.
+New arenas are always dynamic, so there is nothing to choose.
 
-If your server still has static arenas, start migrating them gradually. Static arenas will continue to work for now, but future Blue Arcade development is focused on dynamic arenas.
+If your server still has static arenas, migrate them now. They keep working until 3.6 or 3.7, and after that they will not load.

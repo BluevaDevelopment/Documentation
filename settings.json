@@ -17,9 +17,11 @@
         {"title": "Achievements", "file": "achievements.md"},
         {"title": "Leaderboards & Stats", "file": "leaderboards.md"},
         {"title": "XP & Levels", "file": "levels.md"},
+        {"title": "Replay System", "file": "replay-system.md"},
         {"title": "Commands & Permissions", "file": "commands-permissions.md"},
         {"title": "Placeholders", "file": "placeholders.md"},
-        {"title": "Creating a Module", "file": "developers.md"}
+        {"title": "Creating a Module", "file": "developers.md"},
+        {"title": "Universal Modules", "file": "universal-modules.md"}
       ]
     },
     {

@@ -21,6 +21,7 @@ Base permission for `/ba`: `bluearcade.info` or `bluearcade.*`
 |---------|-----------|-------------|
 | `/ba` | `bluearcade.info` | Display plugin information |
 | `/ba help` | `bluearcade.help` | Show available player commands |
+| `/ba lang (locale)` | `bluearcade.info` | Show or change your language |
 
 ### Arena
 
@@ -76,6 +77,17 @@ All party commands require `bluearcade.party`.
 
 **Stat Periods:** `alltime`, `daily`, `weekly`, `monthly`, `yearly`
 
+### Replays
+
+| Command | Permission | Description |
+|---------|-----------|-------------|
+| `/ba replay` | `bluearcade.replay.view.own` | Open the replay browser, or the replay of your current arena |
+| `/ba replay [category]` | `bluearcade.replay.view.own` | List the replays of a category |
+| `/ba replay [category] [replay_id]` | `bluearcade.replay.view.own` | Watch a replay |
+| `/ba replay leave` | `bluearcade.replay.view.own` | Leave the replay you are watching |
+
+See [Replay System](replay-system.md).
+
 ---
 
 ## Admin Commands
@@ -90,7 +102,7 @@ All admin commands require the `bluearcade.admin` or `bluearcade.admin.*` permis
 |---------|-------------|
 | `/baa` | Show admin help |
 | `/baa help` | Display all admin commands |
-| `/baa create [id] <standalone\|party> [dynamic\|static]` | Create a new arena (default: dynamic) |
+| `/baa create [id] <standalone\|party>` | Create a new arena. Every new arena is dynamic |
 | `/baa delete [id] (confirm)` | Delete an arena |
 | `/baa enable [id]` | Enable an arena |
 | `/baa disable [id] (confirm)` | Disable an arena |
@@ -115,7 +127,6 @@ All admin commands require the `bluearcade.admin` or `bluearcade.admin.*` permis
 | `/baa arena [id] setlobby [skip]` | Set waiting lobby (`skip` puts it inside the game world) |
 | `/baa arena [id] setname [name]` | Set display name |
 | `/baa arena [id] setmode <standalone\|party>` | Change arena mode |
-| `/baa arena [id] settype <static\|dynamic>` | Change arena type |
 | `/baa arena [id] setrounds [number]` | Set rounds (3–15) |
 | `/baa arena [id] minplayers [amount]` | Set min players (0 = admin-managed, otherwise 2+) |
 | `/baa arena [id] maxplayers [amount]` | Set max players (2+) |
@@ -167,7 +178,7 @@ You must be looking at an empty sign block when using these commands.
 |---------|-------------|
 | `/baa module list` | List loaded modules |
 | `/baa module info [module_id]` | Show module details |
-| `/baa module load [file]` | Load a module JAR |
+| `/baa module load [file]` | Load a module file, legacy `.jar` or universal `.bamodule` |
 | `/baa module unload [module_id]` | Unload a module |
 | `/baa module reload` | Reload all modules |
 | `/baa module delete [module_id] (confirm)` | Delete a module permanently |
@@ -180,6 +191,15 @@ You must be looking at an empty sign block when using these commands.
 | `/baa module store originals` | List official Blueva modules |
 | `/baa module store download [module_id]` | Download and install a module |
 | `/baa module store update [module_id] (--force)` | Update a module to latest version |
+
+### Replays
+
+| Command | Description |
+|---------|-------------|
+| `/baa replay list` | List every recorded replay |
+| `/baa replay open [replay_id]` | Open any replay |
+| `/baa replay delete [replay_id]` | Delete a replay |
+| `/baa replay cleanup` | Delete replays older than the configured retention |
 
 ### Economy & XP
 
@@ -197,13 +217,14 @@ You must be looking at an empty sign block when using these commands.
 | `/baa forcestart (id)` | Force start an arena |
 | `/baa forcestop (id)` | Force stop a running arena |
 | `/baa reload <target>` | Reload configuration |
+| `/baa migrate [id] (confirm)` | Convert a legacy static arena into a dynamic one |
 | `/baa upgradefiles confirm` | Run data/file upgrade migration |
 
 ### Reload Targets
 
 - `all` - Reload everything
 - `settings` - Plugin settings
-- `rewards` - Reward configurations
+- `actions` - Rewards and end of round/game commands
 - `sounds` - Sound configurations
 - `lang` - Language files
 - `menus` - Menu definitions
@@ -241,6 +262,9 @@ You must be looking at an empty sign block when using these commands.
 | `bluearcade.level` | View level and XP |
 | `bluearcade.team` | Use team commands |
 | `bluearcade.votes.[number]` | Number of votes per arena |
+| `bluearcade.replay.view.own` | Watch replays of your own matches |
+| `bluearcade.replay.view.all` | Watch any replay |
+| `bluearcade.replay.admin` | Manage replays and use `/baa replay` |
 | `bluearcade.*` | Full player access |
 
 ### Admin Permissions

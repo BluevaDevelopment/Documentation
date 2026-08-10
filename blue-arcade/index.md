@@ -15,6 +15,8 @@ Blue Arcade is a **generic minigame API and runtime**, not a fixed collection of
 - **Shared Database Profiles**: stats sync and proxy SQL messaging can use the same database connection.
 - **Modular Minigames**: Bed Wars, Build Battle, Guess The Build, Speed Builders, SkyWars, Battle Royale, and many more.
 - **AdvancedSlimePaper Support**: dynamic runtime worlds can load through ASP when it is installed.
+- **Replay System**: matches are recorded automatically and can be rewatched afterwards, with no work needed from the modules.
+- **Universal Modules**: experimental sandboxed module format that runs the same file on every platform.
 - **Spectator Mode**, fixed game order, disabled voting, per-module reward overrides, adaptive namespaced sounds, and more.
 
 ## Documentation Sections
@@ -30,6 +32,7 @@ Blue Arcade is a **generic minigame API and runtime**, not a fixed collection of
 - [Achievements](achievements.md) - Achievement system and rewards
 - [Leaderboards & Stats](leaderboards.md) - Statistics and rankings
 - [XP & Levels](levels.md) - Experience and leveling system
+- [Replay System](replay-system.md) - Match recording and playback
 
 ### Reference
 - [Commands & Permissions](commands-permissions.md) - Complete command reference
@@ -37,6 +40,7 @@ Blue Arcade is a **generic minigame API and runtime**, not a fixed collection of
 
 ### For Developers
 - [Creating a Module](developers.md) - Guide to creating custom minigame modules
+- [Universal Modules](universal-modules.md) - The new module format and why Blue Arcade is moving to it
 
 ---
 

@@ -6,6 +6,8 @@ This guide explains how to create a custom minigame module for Blue Arcade.
 
 Blue Arcade uses a modular architecture where each minigame is a separate JAR file that implements the `GameModule` interface. Modules depend only on the BlueArcade API and never on Core internals, so the same module can target both Minecraft and Hytale editions (when a Hytale implementation exists).
 
+This guide covers **legacy modules**, the `.jar` format. Since 3.5.0 there is also an experimental format, written in Lua and sandboxed, that runs on every platform from a single file. See [Universal Modules](universal-modules.md) before starting a new module.
+
 **Requirements:**
 - Java 17 or higher
 - Maven or Gradle
