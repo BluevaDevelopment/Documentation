@@ -4,7 +4,7 @@ BlueSpoof synchronizes fake player counts between backend Minecraft servers and 
 
 ## Installation
 
-BlueSpoof uses the same JAR on the proxy — there is no separate proxy plugin to download.
+BlueSpoof uses the same JAR on the proxy, so there is no separate proxy plugin to download.
 
 1. **Place** the same `BlueSpoof.jar` you use on your backend servers in your proxy's `plugins` folder
 2. **Restart** the proxy
