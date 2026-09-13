@@ -141,6 +141,35 @@
         {"title": "Conditions", "file": "conditions.md"},
         {"title": "Menu Registration", "file": "menu-registration.md"}
       ]
+    },
+    {
+      "id": "blue-housing",
+      "title": "BlueHousing",
+      "description": "Private creative worlds for every player, with per-house flags, roles, Discovery and Lua scripting.",
+      "folder": "BlueHousing",
+      "github_folder": "blue-housing",
+      "tags": ["Housing", "Creative", "Worlds", "Building", "Scripting", "Lua", "Spigot", "Bedrock", "1.21-26.2"],
+      "pages": [
+        {"title": "Index", "file": "index.md"},
+        {"title": "First Steps", "file": "first-steps.md"},
+        {"title": "Houses", "file": "houses.md"},
+        {"title": "Flags", "file": "flags.md"},
+        {"title": "Members & Roles", "file": "members-roles.md"},
+        {"title": "Moderation", "file": "moderation.md"},
+        {"title": "Building Tools", "file": "building-tools.md"},
+        {"title": "Discovery", "file": "discovery.md"},
+        {"title": "Decorations", "file": "decorations.md"},
+        {"title": "Music", "file": "music.md"},
+        {"title": "Economy", "file": "economy.md"},
+        {"title": "Scripting", "file": "scripting.md"},
+        {"title": "Lua API", "file": "lua-api.md"},
+        {"title": "Commands & Permissions", "file": "commands-permissions.md"},
+        {"title": "Placeholders", "file": "placeholders.md"},
+        {"title": "Configuration", "file": "configuration.md"},
+        {"title": "Storage", "file": "storage.md"},
+        {"title": "Network Mode", "file": "network.md"},
+        {"title": "Performance", "file": "performance.md"}
+      ]
     }
   ]
 }
