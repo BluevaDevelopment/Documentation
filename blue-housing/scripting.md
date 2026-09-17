@@ -36,7 +36,7 @@ Every save that actually changes the Lua is versioned, rotated to `webeditor.his
 
 ## Projects
 
-A house has one or more projects, each a folder of `.lua` files.
+A house has one or more projects, each a folder of `.lua` files. **Only `main.lua` runs when the house loads**; every other file runs when `main.lua`, or a file it loads, asks for it with `require("name")`. A file nothing loads never runs, and the editor marks it in the file tree with a warning that offers to add the `require` for you.
 
 | Rule | Why |
 |------|-----|

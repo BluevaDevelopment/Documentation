@@ -10,7 +10,7 @@ A single self-contained document for generating BlueHousing house scripts. Every
 
 A house script is Lua that runs inside the BlueHousing plugin on a Minecraft (Spigot/Paper) server. Each house is a private world with one owner. A script only ever affects **its own house**: there is no way to reach another house, the console, or the server at large.
 
-Files live in projects: `scripts/<project>/main.lua` plus any number of flat `.lua` files, all of which run when the house loads (`main.lua` first, then the rest alphabetically). Handlers may live in any file.
+Files live in projects: `scripts/<project>/main.lua` plus any number of flat `.lua` files. **Only `main.lua` runs when the house loads.** Every other file runs when `main.lua`, or a file it loads, asks for it with `require("name")`, once: a second `require` gets back what the first returned. A file nothing loads never runs, so a handler in it never fires.
 
 Output is plain Lua. Nothing is imported: `housing` and the player handle are already there.
 
@@ -26,7 +26,7 @@ These are the things that are wrong most often. Follow them literally.
 
 1. **Lua 5.5.** `/` always returns a float, so `10/2` is `5.0` and not `5`. Use `//` for integer division. `bit32`, `math.pow`, `math.ldexp` and `math.frexp` do not exist. `utf8` does.
 2. **Methods on a player use a colon**: `player:message(...)`, never `player.message(...)`. Functions on `housing` use a dot: `housing.broadcast(...)`.
-3. **There is no `print`.** Use `housing.log(text)`, which goes to the project console in the web editor, not to the server console.
+3. **`print(...)` and `housing.log(text)` both write to the project console** in the web editor, never to the server console. Nothing a script prints reaches the server log.
 4. **No `os`, `io`, `require` of anything outside the project, no network, no file access.** `require("utils")` loads `utils.lua` **from the same project** and nothing else.
 5. **No console commands.** There is no binding that runs anything as the server. `player:runCommand(cmd)` runs as *that player* and is disabled by default.
 6. **Text is MiniMessage**: `<red>`, `<bold>`, `<gradient:#EC4899:#F43F5E>`. Not `§` or `&` codes.
@@ -140,6 +140,9 @@ Signatures are exact. Square brackets mark optional arguments.
 | `housing.spawn(type, x, y, z [, name])` | housing functions | Spawns an entity and returns a handle. Players are refused (use `housing.npc()`), and a house is capped at 200 entities. Spawned entities are runtime state: they are gone when the house unloads, so spawn them again on `house_enter` if you want them back. |
 | `housing.entities([type])` | housing functions | Array of handles for the non-player entities in the house, optionally filtered by type. |
 | `housing.getBlock(x, y, z)` | housing functions | Material name of that block. |
+| `housing.setBlock(x, y, z, material)` | housing functions | Sets one block. |
+| `housing.border()` | housing functions | The house's world border: `{center_x, center_z, size, min_x, min_z, max_x, max_z}`. Read from the border itself, so it is right whatever the `world-border` flag says (including `auto`, which also decides where it sits). |
+| `housing.inBorder(x, z)` | housing functions | Whether that column is inside the border. Anything a script builds outside it is unreachable. |
 | `housing.setTime(ticks)` | housing functions | Sets the time of the house world (0-23999, wraps). |
 | `housing.weather()` | housing functions | `"clear"`, `"rain"` or `"thunder"`. |
 | `housing.setWeather(state)` | housing functions | One of `"clear"`, `"rain"`, `"thunder"`. |
@@ -190,6 +193,7 @@ Signatures are exact. Square brackets mark optional arguments.
 | `housing.tempban(target, seconds [, reason])` | Moderation | A ban that lifts itself, written exactly as `/h tempban` writes it. Ejects them the same way. |
 | `housing.mute(target [, seconds, reason])` | Moderation | Mutes them in the house. Without a duration the mute is permanent. |
 | `housing.unmute(target)` | Moderation | Returns `true` if they were muted. |
+| `housing.isMuted(target)` | Moderation | Whether they are muted in this house. |
 | `housing.role(target)` | Roles and access | The role that player holds here (`owner`, `trusted`, `added`, `visitor`, or a role your scripts registered). |
 | `housing.setRole(target, role [, temporary])` | Roles and access | Assigns it. A **temporary** role lasts until they leave the house; a persistent one is what `/h role` and `/h trust` write. The owner's role cannot be changed. |
 | `housing.removeRole(target)` | Roles and access | Returns `true` if they had one. |
@@ -223,6 +227,8 @@ Signatures are exact. Square brackets mark optional arguments.
 | `player:warp(id)` | Effects & movement | Teleport to a warp registered with `housing.warp(...)`. Errors if the warp does not exist. |
 | `player:give(material, amount)` | Inventory | Give items (`"DIAMOND"`, `"minecraft:diamond"` and `"diamond"` all work). |
 | `player:removeItem(material, amount)` | Inventory | Remove up to `amount` items of that material. |
+| `player:clearInventory()` | Inventory | Empties it. |
+| `player:closeInventory()` | Inventory | Closes whatever they have open. |
 | `player:yaw()` | Inventory | Where the player is looking, in degrees. |
 | `player:pitch()` | Inventory | Where the player is looking, in degrees. |
 | `player:push(x, y, z)` | Inventory | Adds to the player's velocity, for jump pads and knockback. Each axis is capped at ±5. |
@@ -251,6 +257,7 @@ Signatures are exact. Square brackets mark optional arguments.
 | `player:openMenu(id)` | Menus | Opens one of the plugin's own house menus, e.g. `"main"` for the `/h` menu. Errors when no menu has that id. |
 | `player:playSong([id])` | Music | Starts the house song for this listener, or a named one. |
 | `player:stopSong()` | Music | Stops whatever they are hearing. |
+| `player:isSongPlaying()` | Music | Whether a song is playing for them. |
 | `player:playEffect(effect, x, y, z)` | Particles | One frame of a named effect, for this player only. |
 | `player:cooldown(key, seconds)` | Cooldowns | Returns `true` when it was ready, **and starts it**. Returns `false` when it is not. |
 | `player:cooldownLeft(key)` | Cooldowns | Seconds left, `0` when ready. |
@@ -264,8 +271,10 @@ Signatures are exact. Square brackets mark optional arguments.
 | `player:heal()` | State | Restore full health. |
 | `player:feed()` | State | Full hunger bar. |
 | `player:damage(amount)` | State | Deal damage (hearts × 2). |
+| `player:kill()` | State | Kills them. |
 | `player:setFire(ticks)` | State | Set on fire for `ticks` ticks (20 ticks = 1 second). |
 | `player:effect(name, durationTicks, amplifier)` | State | Potion effect. Accepts `SPEED`, `speed` or `minecraft:speed`. Amplifier 0 = level I. |
+| `player:clearEffect(name)` | State | Removes that potion effect. |
 | `player:kick([reason])` | State | Disconnect the player from the server. Reason supports MiniMessage (default: a generic "kicked from this house" message). |
 | `player:runCommand(cmd)` | State | Run a command **as the player** (without `/`). Disabled by default: the server owner must set `scripting.player_commands: true` in settings.yml, otherwise this raises an error. |
 | `player:health()` | Getters | Current health, 0-20. |

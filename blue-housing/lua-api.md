@@ -17,9 +17,10 @@ A house does not have a single script: it has **one or more projects**. Each pro
 folder `scripts/<slug>/` inside the house data folder, with a `project.json`
 (`{"name", "enabled", "position"}`) and any number of flat `.lua` files (no
 subdirectories). When the project loads (world load, plugin start, or sync from the web
-editor), `main.lua` runs first and then **every other `.lua` file runs too**, in
-alphabetical order, so handlers can live in any file. A file pulled in through
-`require()` is never run twice.
+editor), **only `main.lua` runs**. Any other file runs when `main.lua`, or a file it
+loads, asks for it with `require("name")`, and only once: a second `require` gets back
+what the first one returned. A file nothing loads never runs; the editor marks it with a
+warning and offers to add the `require` to `main.lua`.
 
 - **Isolation:** every project gets its own Lua environment: own globals, event
   handlers, scheduled tasks, regions, warps, persistent variables and module cache.
@@ -801,6 +802,8 @@ appear in it.
 | `housing.spawn(type, x, y, z [, name])` | Spawns an entity and returns a handle. Players are refused (use `housing.npc()`), and a house is capped at 200 entities. Spawned entities are runtime state: they are gone when the house unloads, so spawn them again on `house_enter` if you want them back. |
 | `housing.entities([type])` | Array of handles for the non-player entities in the house, optionally filtered by type. |
 | `housing.getBlock(x, y, z)` | Material name of that block. |
+| `housing.border()` | The house's world border: `{center_x, center_z, size, min_x, min_z, max_x, max_z}`. Read from the border itself, so it is right whatever the `world-border` flag says (including `auto`, which also decides where it sits). |
+| `housing.inBorder(x, z)` | Whether that column is inside the border. Anything a script builds outside it is unreachable. |
 | `housing.setTime(ticks)` | Sets the time of the house world (0-23999, wraps). |
 | `housing.weather()` | `"clear"`, `"rain"` or `"thunder"`. |
 | `housing.setWeather(state)` | One of `"clear"`, `"rain"`, `"thunder"`. |
