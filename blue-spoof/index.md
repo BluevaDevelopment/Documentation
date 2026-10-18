@@ -1,18 +1,16 @@
-# BlueSpoof 3.0 Documentation
+# BlueSpoof Documentation
 
-Welcome to the official documentation for **BlueSpoof 3.0** - an AI-powered fake player solution for Minecraft servers.
+Welcome to the official documentation for **BlueSpoof** - an AI-powered fake player solution for Minecraft servers.
 
-## What's New in 3.0
+## Features
 
-BlueSpoof 3.0 is a complete rewrite of the plugin formerly known as Spoof Engine:
-
-- **Modular Architecture**: Every feature is now a separate module that can be toggled independently
+- **Modular Architecture**: Enable or disable each feature independently
 - **Movement Engine**: Fake players roam the world with human-like behavior - walking, sprinting, jumping, and idle pauses
 - **Trace System**: Record real player paths in defined regions and replay them with bots so lobbies look naturally populated
 - **Multi-Provider AI Chat**: Supports OpenAI, Claude, Gemini, Grok, DeepSeek, and Ollama with automatic failover
 - **Discretion Mode**: Hide BlueSpoof branding in console output and command exposure
 - **Ranks Module**: Automatically assign weighted permission ranks to fake players on join
-- **Enhanced Proxy Sync**: TCP, Redis, SQL, and Plugin Messaging support for BungeeCord/Velocity
+- **Proxy Sync**: Synchronize fake players and player counts across BungeeCord or Velocity networks. Install the same JAR on the proxy and backends; the default method discovers backend names automatically. See [Proxy Sync](proxy.md) for setup
 
 ## Documentation Sections
 

@@ -20,7 +20,7 @@ BlueSpoof provides PlaceholderAPI integration for use in scoreboards, holograms,
 
 ## Proxy Placeholders
 
-These require proxy sync to be configured in `settings.yml` and BlueSpoof to be installed on the proxy.
+These require BlueSpoof on the proxy and participating backends, with synchronization enabled and the same method selected on both sides. Fresh configurations use the default `plugin` bridge automatically. See [Proxy Sync](proxy.md) for setup and migration.
 
 | Placeholder | Description |
 |-------------|-------------|
@@ -32,7 +32,7 @@ These require proxy sync to be configured in `settings.yml` and BlueSpoof to be 
 | `%bluespoof_proxy_{server_name}_real%` | Real players on a specific backend server |
 | `%bluespoof_proxy_{server_name}_total%` | Total players on a specific backend server |
 
-**Note:** Replace `{server_name}` with the `server_id` configured in the backend's `settings.yml`.
+**Server names:** With the default `plugin` method, replace `{server_name}` with the backend name from the BungeeCord/Velocity server list. It is detected automatically; the backend `server_id` is ignored. With TCP/Redis/SQL, use `proxy.messaging.server_id`, which must match that proxy server-list name.
 
 ---
 

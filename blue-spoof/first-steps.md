@@ -28,6 +28,16 @@ Before installing, ensure your server meets these requirements:
 4. **Start** the server
 5. The plugin will generate all configuration files automatically
 
+## Using BungeeCord or Velocity?
+
+Install the **same BlueSpoof 3.9.2 or newer JAR** on the proxy and every backend you want to synchronize, then restart them. Fresh configurations already enable the default `plugin` bridge, which generates keys and pairs automatically on first contact.
+
+The bridge uses the existing backend Minecraft ports and detects backend names automatically. No separate proxy download, extra listening port, Redis or database is needed.
+
+Keep your normal proxy forwarding setup and backend firewall rules. Existing installations may retain their previous transport settings; follow [Proxy Sync](proxy.md) for transport selection, automatic pairing and troubleshooting.
+
+Standalone servers do not need a proxy installation or a change to their authentication settings. Automatic pairing stays dormant on online-mode standalone servers.
+
 ## First Fake Player Connection
 
 ### 1. Open the Admin GUI (recommended)
@@ -112,7 +122,7 @@ The **Connection** module is always active because it handles core fake-player c
 
 **"No fake players connected" after running `/bs connect`**
 - Check the console for errors
-- Ensure your server is in offline mode if you are not using a proxy
+- On a proxy network, verify the normal proxy forwarding setup and backend firewall rules
 - Verify that `nicks.yml` is not empty
 
 **"Insufficient permissions"**
@@ -121,7 +131,7 @@ The **Connection** module is always active because it handles core fake-player c
 
 **Fake players disconnect immediately**
 - Check for authentication plugin conflicts (AuthMe, etc.)
-- Ensure the server is not in online mode without a valid proxy setup
+- On a proxy network, check that forwarding and backend authentication settings match your proxy setup
 - Review the Events module; some example commands are disabled by default
 
 **High CPU usage with many fake players**

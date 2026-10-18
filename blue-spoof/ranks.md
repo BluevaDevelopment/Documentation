@@ -83,7 +83,9 @@ If for some reason the plugin cannot pick a weighted rank (for example all ranks
 |--------|-------------|---------|
 | `ranks.sync_between_network.enabled` | Share cached fake-player ranks across backend servers | `false` |
 
-When enabled, BlueSpoof shares the cached rank assignments through the configured proxy sync method (TCP, Redis, SQL, or Plugin Messaging). This ensures that if a fake player reconnects to a different backend server in your network, they keep the same rank.
+When enabled, BlueSpoof shares cached rank assignments through the selected [proxy sync method](proxy.md). The default `plugin` bridge supports both BungeeCord and Velocity; TCP, Redis and SQL are also available. This lets a fake player keep their assigned rank when they reconnect to another backend in the network.
+
+Rank synchronization itself remains **disabled by default**. Enable `ranks.sync_between_network.enabled` on the participating backends if you want to share ranks; enabling proxy synchronization alone does not enable this option.
 
 **Only enable this if every backend server has exactly the same rank identifiers and command behavior.** If Server A has `vip` but Server B calls it `donor`, the rank command will fail on Server B.
 
