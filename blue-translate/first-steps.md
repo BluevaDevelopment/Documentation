@@ -7,9 +7,10 @@ This guide will walk you through the initial setup of BlueTranslate on your serv
 1. [Buy the Plugin](#buy-the-plugin)
 2. [Requirements](#requirements)
 3. [Installation](#installation)
-4. [Initial Configuration](#initial-configuration)
-5. [Selecting a Language](#selecting-a-language)
-6. [Next Steps](#next-steps)
+4. [License](#license)
+5. [Initial Configuration](#initial-configuration)
+6. [Selecting a Language](#selecting-a-language)
+7. [Next Steps](#next-steps)
 
 ---
 
@@ -78,6 +79,33 @@ plugins/BlueTranslate/
 └── translations/         # Manual translation YAML files (optional)
     └── example.yml
 ```
+
+---
+
+## License
+
+If you bought or downloaded the plugin from the [Blueva Store](https://blueva.net/store), your license key is already filled in and there is nothing for you to do.
+
+If you bought it anywhere else (BuiltByBit, PixelEast, Polymart, etc.), the key starts empty and the plugin reminds you in the console every time it starts. To obtain and activate your license:
+
+1. Create a free account at [blueva.net](https://blueva.net/register), or sign in if you already have one.
+2. Open your [account settings](https://blueva.net/account?tab=settings) and find the **License** section.
+3. Click **Show**, then **Copy** to copy your license key.
+4. Paste the key into the `license.key` field of `plugins/BlueTranslate/license.yml` and restart the server.
+
+```yaml
+license:
+  key: "your-license-key"
+```
+
+> **Note:** The product will be permanently linked to the Blueva account used during activation. Once linked, it cannot be transferred or linked to a different Blueva account.
+
+- The same key works for every Blueva product you own.
+- Your license can be used from up to **six different IP addresses**, with no limit on the number of servers running under each IP. Authorized IPs can be viewed and managed from your account settings.
+- If your key is lost or compromised, you can replace it from the same page and paste the new one into `license.yml`. The old key stops working everywhere at once.
+- Do not edit the `purchase` block in `license.yml`. It is filled in by the store you downloaded from and is only used to confirm your purchase.
+
+For help, visit [blueva.net/support](https://blueva.net/support).
 
 ---
 

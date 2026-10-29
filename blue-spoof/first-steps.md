@@ -28,6 +28,31 @@ Before installing, ensure your server meets these requirements:
 4. **Start** the server
 5. The plugin will generate all configuration files automatically
 
+## License
+
+If you bought or downloaded the plugin from the [Blueva Store](https://blueva.net/store), your license key is already filled in and there is nothing for you to do.
+
+If you bought it anywhere else (BuiltByBit, PixelEast, Polymart, etc.), the key starts empty and the plugin reminds you in the console every time it starts. To obtain and activate your license:
+
+1. Create a free account at [blueva.net](https://blueva.net/register), or sign in if you already have one.
+2. Open your [account settings](https://blueva.net/account?tab=settings) and find the **License** section.
+3. Click **Show**, then **Copy** to copy your license key.
+4. Paste the key into the `license.key` field of `plugins/BlueSpoof/license.yml` and restart the server.
+
+```yaml
+license:
+  key: "your-license-key"
+```
+
+> **Note:** The product will be permanently linked to the Blueva account used during activation. Once linked, it cannot be transferred or linked to a different Blueva account.
+
+- The same key works for every Blueva product you own.
+- Your license can be used from up to **six different IP addresses**, with no limit on the number of servers running under each IP. Authorized IPs can be viewed and managed from your account settings.
+- If your key is lost or compromised, you can replace it from the same page and paste the new one into `license.yml`. The old key stops working everywhere at once.
+- Do not edit the `purchase` block in `license.yml`. It is filled in by the store you downloaded from and is only used to confirm your purchase.
+
+For help, visit [blueva.net/support](https://blueva.net/support).
+
 ## Using BungeeCord or Velocity?
 
 Install the **same BlueSpoof 3.9.2 or newer JAR** on the proxy and every backend you want to synchronize, then restart them. Fresh configurations already enable the default `plugin` bridge, which generates keys and pairs automatically on first contact.
