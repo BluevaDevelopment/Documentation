@@ -76,13 +76,15 @@ Use the built-in module store:
 
 ### Manual Installation
 
-1. Download the module JAR from the [Blueva Store](https://blueva.net/store).
+1. Download the module file (`.bamodule`, or legacy `.jar`) from the [Blueva Store](https://blueva.net/store).
 2. Place it in `plugins/BlueArcade3/modules/`.
 3. Run `/baa reload all` or restart the server.
 
 ## First Arena Setup
 
-Blue Arcade creates **dynamic arenas by default**. Each match runs in a fresh temporary world copied from a template you build. This removes the need for manual world regeneration and is the recommended approach.
+Blue Arcade creates **dynamic arenas by default**. Each match runs in a fresh temporary world copied from a template you build. This removes the need for manual world regeneration and is the recommended approach. There is also an experimental [virtual arena](virtual-arenas.md) type for compatible Paper servers.
+
+Since 3.6.0, setup commands use a **contextual syntax**: you select the arena once and stop repeating IDs. The classic syntax with IDs in every command still works; see [Commands & Permissions](commands-permissions.md).
 
 ### 1. Set the Main Lobby
 
@@ -102,39 +104,40 @@ Choose a mode:
 - **Party**: multiple minigames with rounds and voting (recommended)
 
 ```
-/baa create [id] <standalone|party>
+/baa arena create [id] <standalone|party>
 ```
 
 **Examples:**
 ```
-/baa create 1 party
-/baa create 2 standalone
+/baa arena create 1 party
+/baa arena create 2 standalone
 ```
 
-Every arena is dynamic.
+Without a type the arena is dynamic.
 
 When you create a dynamic arena, the plugin creates a temporary void world (`ba-temporal-<id>-lobby`) and teleports you into it in Creative mode. Build your waiting lobby there.
 
 ### 3. Configure the Arena
 
 ```
-/baa arena [id] setname [name]      # Set display name
-/baa arena [id] setlobby            # Set waiting lobby spawn
-/baa arena [id] minplayers [amount] # Set minimum players (0 = admin-managed, otherwise 2+)
-/baa arena [id] maxplayers [amount] # Set maximum players (2+)
-/baa arena [id] setrounds [number]  # Set rounds (3-15, party mode only)
+/baa arena select [id]                # Select it once; commands below apply to it
+/baa arena name [name]                # Set display name
+/baa arena lobby set                  # Set waiting lobby spawn
+/baa arena players min [amount]       # Set minimum players (0 = admin-managed, otherwise 2+)
+/baa arena players max [amount]       # Set maximum players (2+)
+/baa arena rounds [number]            # Set rounds (3-15, party mode only)
 ```
 
 ### 4. Add Minigames
 
 ```
-/baa game [id] add <micro|mini> [minigame]
+/baa game add [minigame]
 ```
 
 **Examples:**
 ```
-/baa game 1 add micro spleef
-/baa game 1 add mini block_party
+/baa game add spleef
+/baa game add block_party
 ```
 
 When you add a minigame to a dynamic arena, the plugin saves the lobby template, creates a new temporary world for that minigame (`ba-temporal-<id>-<minigame>`), and teleports you into it. Build the map there.
@@ -153,26 +156,26 @@ All minigames share common setup steps. Each module may add its own steps.
 
 - Left-click to set position 1
 - Right-click to set position 2
-- Save with `/baa game [id] [minigame] bounds set`
+- Save with `/baa game bounds set`
 
 #### Add Spawn Points
 
 ```
-/baa game [id] [minigame] spawn add
+/baa game spawn add
 ```
 
-Add at least as many spawns as your arena's max players.
+Add at least as many spawns as your arena's max players. Saved spawns show a private hologram and a colored beacon beam while you edit, visible only to you.
 
 #### Set Duration
 
 ```
-/baa game [id] [minigame] time [minutes]
+/baa game time [seconds]
 ```
 
 #### Enable the Minigame
 
 ```
-/baa game [id] [minigame] enable
+/baa game enable
 ```
 
 For dynamic arenas, enabling a minigame zips the temporary world as the template for that game and returns you to the lobby.
@@ -182,7 +185,7 @@ For dynamic arenas, enabling a minigame zips the temporary world as the template
 Once all minigames are configured:
 
 ```
-/baa enable [id]
+/baa arena enable
 ```
 
 For dynamic arenas, this saves the final lobby template and enables the arena.
@@ -192,16 +195,18 @@ For dynamic arenas, this saves the final lobby template and enables the arena.
 | Action | Command |
 |--------|---------|
 | Set main lobby | `/baa setmainlobby` |
-| Create arena | `/baa create [id] <standalone\|party>` |
-| Set arena name | `/baa arena [id] setname [name]` |
-| Set arena lobby | `/baa arena [id] setlobby` |
-| Set player limits | `/baa arena [id] minplayers [n]` / `maxplayers [n]` |
-| Add minigame | `/baa game [id] add <micro\|mini> [minigame]` |
-| Set bounds | `/baa game [id] [minigame] bounds set` |
-| Add spawn | `/baa game [id] [minigame] spawn add` |
-| Enable minigame | `/baa game [id] [minigame] enable` |
-| Enable arena | `/baa enable [id]` |
+| Create arena | `/baa arena create [id] <standalone\|party>` |
+| Select arena | `/baa arena select [id]` |
+| Set arena name | `/baa arena name [name]` |
+| Set arena lobby | `/baa arena lobby set` |
+| Set player limits | `/baa arena players min [n]` / `max [n]` |
+| Add minigame | `/baa game add [minigame]` |
+| Set bounds | `/baa game bounds set` |
+| Add spawn | `/baa game spawn add` |
+| Enable minigame | `/baa game enable` |
+| Enable arena | `/baa arena enable` |
 | View arena info | `/baa info [id]` |
+| Setup checklist | `/baa arena status` |
 | List arenas | `/baa list` |
 
 ## Troubleshooting

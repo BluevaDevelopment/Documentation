@@ -1,8 +1,8 @@
 # Why Blue Arcade Is Moving to Dynamic Arenas
 
-Blue Arcade is moving toward **dynamic arenas** as the recommended and default arena system. Since 3.5.0 new static arenas can no longer be created, and the ones you already have will stop working in 3.6 or 3.7. Until then they keep running, so migrate them while there is time.
+Blue Arcade is moving toward **dynamic arenas** as the recommended and default arena system. Since 3.5.0 new static arenas can no longer be created. Since **3.6.0** the ones you already have are **read-only**: setup commands refuse to edit or clone them until you migrate them to dynamic, although their matches keep running. Static support ends in **3.7.0**, so migrate them while there is time.
 
-This change is not only about performance. It also makes Blue Arcade easier to maintain, easier to debug, and ready for features that are not practical with static arenas.
+This change is not only about performance. It also makes Blue Arcade easier to maintain, easier to debug, and ready for features that are not practical with static arenas: physical podiums, championship tie-breaks and replays all require dynamic (or virtual) arenas.
 
 ## Static vs Dynamic Arenas
 
@@ -114,24 +114,24 @@ For that reason, static arenas are now considered legacy.
 
 ## Migrating a Static Arena
 
-Blue Arcade includes a migration command that converts a legacy static arena into dynamic templates.
-
-First run:
+Blue Arcade includes a migration command that converts a legacy static arena into dynamic templates. It runs **from the console**, for safety:
 
 ```text
-/baa migrate <arena_id>
+/baa arena migrate <arena_id> dynamic
 ```
 
-Blue Arcade will validate the arena and print a temporary confirmation command. Then run the confirmation within the time limit:
+Blue Arcade will validate the arena and print a temporary confirmation command. Then run the confirmation within 30 seconds:
 
 ```text
-/baa migrate <arena_id> confirm
+/baa arena migrate <arena_id> dynamic confirm
 ```
 
-The migration process moves the old arena data folder into the Blue Arcade backup folder and creates new dynamic templates for the waiting lobby and configured games. The arena is left disabled after migration so you can test it before enabling it again.
+The migration process moves the old arena data folder into the Blue Arcade backup folder (`plugins/BlueArcade3/backup/`) and creates new dynamic templates for the waiting lobby and configured games. The arena is left disabled after migration so you can test it before enabling it again.
+
+Migrated dynamic arenas can later be converted to the experimental [virtual arena](virtual-arenas.md) type with `/baa arena migrate <arena_id> virtual`, also from the console and with backups.
 
 ## Recommendation
 
-New arenas are always dynamic, so there is nothing to choose.
+New arenas are dynamic by default, so there is nothing to choose. Dynamic arenas remain the recommended type for production; the experimental virtual arenas are not a replacement yet.
 
-If your server still has static arenas, migrate them now. They keep working until 3.6 or 3.7, and after that they will not load.
+If your server still has static arenas, migrate them now. They keep running matches until **3.7.0**, but they can no longer be edited or cloned, and after 3.7.0 they will not load.

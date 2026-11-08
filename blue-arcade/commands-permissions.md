@@ -96,16 +96,35 @@ Main command: `/arcadeadmin` (aliases: `/baa`, `/barcadea`, `/bluearcadeadmin`)
 
 All admin commands require the `bluearcade.admin` or `bluearcade.admin.*` permission.
 
+### Setup Syntax (3.6.0)
+
+Setup commands come in two syntaxes:
+
+- **Contextual (new, recommended)**: select the arena (and game) once, then run actions without repeating IDs. `/baa help` and tab completion use this syntax. The selection is per-player and is cleared with `/baa arena clear` or on logout.
+- **Classic**: every command carries the arena and minigame IDs. Still fully supported; `/baa help classic` lists it.
+
+| Contextual | Classic equivalent |
+|------------|--------------------|
+| `/baa arena select 3` | (no equivalent; the ID is repeated per command) |
+| `/baa arena name Party` | `/baa arena 3 setname Party` |
+| `/baa game select spleef` + `/baa game time 120` | `/baa game 3 spleef time 2` |
+
+Any command whose second argument is a number is treated as classic. Explicit targets can also be passed with `--arena <id>` / `--game <id>` flags in the contextual syntax.
+
+> Note: `/baa game time` takes **seconds** (1-3600) in the contextual syntax; the classic `time` takes **minutes** (1-60).
+
 ### Arena Management
 
 | Command | Description |
 |---------|-------------|
 | `/baa` | Show admin help |
-| `/baa help` | Display all admin commands |
-| `/baa create [id] <standalone\|party>` | Create a new arena. Every new arena is dynamic |
+| `/baa help` | Display the contextual setup help |
+| `/baa help classic` | Display the classic admin command list |
+| `/baa create [id] <standalone\|party> [dynamic\|virtual]` | Create a new arena (default type: dynamic) |
 | `/baa delete [id] (confirm)` | Delete an arena |
 | `/baa enable [id]` | Enable an arena |
 | `/baa disable [id] (confirm)` | Disable an arena |
+| `/baa clone [original_id] [new_id]` | Copy a dynamic arena under a new id (not for static arenas) |
 | `/baa list` | List all arenas |
 | `/baa info [id]` | Display arena information |
 | `/baa setmainlobby` | Set main lobby location |
@@ -120,46 +139,86 @@ All admin commands require the `bluearcade.admin` or `bluearcade.admin.*` permis
 | `/baa pos2` | Set position 2 at current location |
 | `/baa clearselection` | Clear your selection |
 
-### Arena Configuration
+### Arena Configuration (Contextual)
+
+Select the arena first with `/baa arena select [id]` (selection only) or `/baa arena edit [id]` (opens the lobby template for editing).
 
 | Command | Description |
 |---------|-------------|
-| `/baa arena [id] setlobby [skip]` | Set waiting lobby (`skip` puts it inside the game world) |
+| `/baa arena` | Show your current selection and the arena help |
+| `/baa arena select [id]` / `/baa arena clear` | Select or clear the current arena |
+| `/baa arena edit (id)` / `save` / `exit` | Open, save or leave the lobby template editor |
+| `/baa arena status (auto <on\|off>)` | Setup checklist, optionally self-refreshing |
+| `/baa arena create [id] <standalone\|party> [dynamic\|virtual]` | Create an arena |
+| `/baa arena delete [id] (confirm)` | Delete an arena |
+| `/baa arena migrate [id] [dynamic\|virtual] (confirm)` | Convert static → dynamic or dynamic ↔ virtual (console only) |
+| `/baa arena name [text]` | Set display name |
+| `/baa arena mode <standalone\|party>` | Change arena mode |
+| `/baa arena players <min\|max> [n]` | Set min/max players |
+| `/baa arena rounds [n]` | Set rounds (3–15) |
+| `/baa arena lobby <set\|skip>` | Set waiting lobby (`skip` puts it inside the game world; dynamic only) |
+| `/baa arena voting <on\|off>` | Enable or disable minigame voting |
+| `/baa arena order set <game1> <game2> ...` / `order clear` | Fixed rotation when voting is off |
+| `/baa arena ondemand <on\|off>` | Arena On Demand instances (dynamic only) |
+| `/baa arena enable` / `disable` | Enable or disable the selected arena |
+
+### Podium & Tie-Break (Contextual)
+
+See [Podiums & Tie-Breaks](podiums.md) for details. The arena must be selected and disabled; static arenas are rejected.
+
+| Command | Description |
+|---------|-------------|
+| `/baa arena podium set <between_games\|final> <enabled\|fixed_camera\|fireworks\|winner_effects> <on\|off\|default>` | Per-arena podium option override |
+| `/baa arena podium edit` / `save` / `exit` / `reset` | Custom podium map editor |
+| `/baa arena podium npc <1-3>` / `camera` | Capture podium statue / camera positions |
+| `/baa arena podium <round\|final> npc <1-3>` / `camera` / `reset` | Per-ceremony position overrides |
+| `/baa arena tiebreak games <id...\|default>` | Tie-break minigame pool for this arena |
+| `/baa arena tiebreak rounds <n\|default>` | Max extra rounds before the reaction challenge |
+
+### Minigame Management (Contextual)
+
+Select the game with `/baa game select [minigame]`, or open its template with `/baa game edit [minigame]`.
+
+| Command | Description |
+|---------|-------------|
+| `/baa game` | Show your current selection and the game help |
+| `/baa game list` | List the arena's minigames |
+| `/baa game available (microgame\|minigame)` | List installable minigames |
+| `/baa game add [minigame]` | Add a minigame (type auto-detected; virtual arenas filter to universal modules) |
+| `/baa game remove [minigame] (confirm)` | Remove a minigame |
+| `/baa game select [minigame]` / `edit (minigame)` | Select or open the minigame template |
+| `/baa game enable` / `disable (confirm)` | Enable (saves template) or disable |
+| `/baa game save` / `exit` / `status` | Save, leave or inspect the setup session |
+| `/baa game bounds set` | Set play area boundaries |
+| `/baa game spawn <add\|remove\|list\|teleport> (#)` | Manage spawn points |
+| `/baa game time [seconds]` | Set duration in seconds (1–3600) |
+| `/baa game deathblock [material]` | Set death block |
+| `/baa game setup [module command] ...` | Pass arguments to the module's own setup commands |
+
+Module-specific setup commands are provided by each minigame module and also appear in tab completion and the setup scoreboard.
+
+### Classic Setup Syntax
+
+Every classic command still works. The ID in second position selects this syntax automatically.
+
+| Command | Description |
+|---------|-------------|
+| `/baa arena [id] setlobby (skip)` | Set waiting lobby |
 | `/baa arena [id] setname [name]` | Set display name |
 | `/baa arena [id] setmode <standalone\|party>` | Change arena mode |
 | `/baa arena [id] setrounds [number]` | Set rounds (3–15) |
-| `/baa arena [id] minplayers [amount]` | Set min players (0 = admin-managed, otherwise 2+) |
-| `/baa arena [id] maxplayers [amount]` | Set max players (2+) |
-| `/baa arena [id] edit` | Reopen a dynamic arena lobby template for editing |
-| `/baa arena [id] ondemand <true\|false>` | Enable Arena On Demand instances |
-| `/baa arena [id] disablevoting <true\|false>` | Disable minigame voting |
-| `/baa arena [id] setgameorder <game1,game2,...>` | Fixed rotation when voting is disabled |
-| `/baa arena [id] cleargameorder` | Clear fixed rotation |
-
-### Minigame Management
-
-| Command | Description |
-|---------|-------------|
+| `/baa arena [id] minplayers\|maxplayers [amount]` | Set player limits |
+| `/baa arena [id] edit` / `save` / `exit` / `status` | Lobby template editor |
+| `/baa arena [id] ondemand <true\|false>` | Arena On Demand |
+| `/baa arena [id] disablevoting <true\|false>` | Disable voting |
+| `/baa arena [id] setgameorder <game1,game2,...>` / `cleargameorder` | Fixed rotation |
 | `/baa game [id] add <micro\|mini> <minigame\|list>` | Add a minigame |
-| `/baa game [id] remove [minigame] (confirm)` | Remove a minigame |
-| `/baa game [id] list` | List arena minigames |
-| `/baa game [id] [minigame] enable` | Enable a minigame and save dynamic template |
-| `/baa game [id] [minigame] disable (confirm)` | Disable a minigame |
-| `/baa game [id] [minigame] edit` | Reopen a dynamic minigame template for editing |
-
-### Common Minigame Setup
-
-| Command | Description |
-|---------|-------------|
-| `/baa game [id] [minigame] bounds set` | Set play area boundaries |
-| `/baa game [id] [minigame] spawn add` | Add spawn point |
-| `/baa game [id] [minigame] spawn remove [#]` | Remove spawn point |
-| `/baa game [id] [minigame] spawn list` | List spawn points |
-| `/baa game [id] [minigame] spawn teleport [#]` | Teleport to spawn |
-| `/baa game [id] [minigame] time [minutes]` | Set duration (1–60) |
-| `/baa game [id] [minigame] deathblock [material]` | Set death block |
-
-Module-specific setup commands are provided by each minigame module and also appear in tab completion and the setup scoreboard.
+| `/baa game [id] remove [minigame] (confirm)` / `list` | Remove or list minigames |
+| `/baa game [id] [minigame] enable\|disable\|edit\|save\|exit\|status` | Minigame lifecycle |
+| `/baa game [id] [minigame] bounds <set\|automatic>` | Boundaries |
+| `/baa game [id] [minigame] spawn <add\|remove\|list\|teleport> (#)` | Spawns |
+| `/baa game [id] [minigame] time [minutes]` | Duration in **minutes** (1–60) |
+| `/baa game [id] [minigame] deathblock [material]` | Death block |
 
 ### Signs
 
@@ -217,7 +276,7 @@ You must be looking at an empty sign block when using these commands.
 | `/baa forcestart (id)` | Force start an arena |
 | `/baa forcestop (id)` | Force stop a running arena |
 | `/baa reload <target>` | Reload configuration |
-| `/baa migrate [id] (confirm)` | Convert a legacy static arena into a dynamic one |
+| `/baa arena migrate [id] [dynamic\|virtual] (confirm)` | Convert static → dynamic or dynamic ↔ virtual (console only; `/baa migrate` is a legacy alias) |
 | `/baa upgradefiles confirm` | Run data/file upgrade migration |
 
 ### Reload Targets

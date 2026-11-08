@@ -43,9 +43,9 @@ A universal module never names a platform value. It says `minecraft:snow_block` 
 
 ### Virtual worlds need it
 
-Blue Arcade is working towards virtual worlds: arenas held in memory and rendered to players through packets instead of being real server worlds. In a virtual world the server fires no Bukkit events, and every legacy module is built on exactly those events.
+Since 3.6.0, Blue Arcade ships experimental [virtual arenas](virtual-arenas.md): matches held in memory and rendered to players through packets instead of real server worlds. In a virtual world the server fires no Bukkit events, and every legacy module is built on exactly those events.
 
-Virtual worlds therefore cannot work with legacy modules. They need modules that listen to Blue Arcade's own event stream, which is the same thing cross platform modules need. One design solves both.
+Virtual worlds therefore cannot work with legacy modules. They need modules that listen to Blue Arcade's own event stream, which is the same thing cross platform modules need: a virtual arena only accepts universal `.bamodule` minigames. One design solves both.
 
 ## Using Universal Modules
 

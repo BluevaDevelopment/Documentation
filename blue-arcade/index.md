@@ -1,6 +1,6 @@
 # Blue Arcade Documentation
 
-Welcome to the official documentation for **Blue Arcade** - the modular minigames and party-games platform for Minecraft servers.
+Welcome to the official documentation for **Blue Arcade**, the modular minigames and party-games platform for Minecraft servers.
 
 ## What is Blue Arcade?
 
@@ -9,6 +9,8 @@ Blue Arcade is a **generic minigame API and runtime**, not a fixed collection of
 ## Key Features
 
 - **Dynamic Arenas**: every match runs in a fresh temporary world copied from a saved template. This is the recommended and default arena type.
+- **Virtual Arenas (Experimental)**: on compatible Paper servers, maps are sent directly to players as packets instead of loading a world per match. Universal modules only; performance is still being improved, so dynamic arenas remain the recommendation.
+- **Physical Podiums & Tie-Breaks**: winners stand as NPCs on a podium between party minigames and at match end, ties for the top three are broken with extra minigames or a reaction challenge, and tied players share places, stars and rewards.
 - **Arena On Demand**: busy dynamic arenas can automatically spin up extra instances so more players can join without manual setup.
 - **Proxy Mode**: lobby servers can list arenas hosted on separate game servers and send players with `/ba join server:arena`.
 - **Redis, MySQL and MariaDB Messaging**: alternatives to socket mode for proxy communication.
@@ -22,25 +24,27 @@ Blue Arcade is a **generic minigame API and runtime**, not a fixed collection of
 ## Documentation Sections
 
 ### Getting Started
-- [First Steps](first-steps.md) - Installation, requirements, and initial setup
-- [Creating Arenas](arenas.md) - Dynamic arena creation, templates, and configuration
-- [Why Dynamic Arenas](dynamic-arenas.md) - Why Blue Arcade is moving away from static arenas
+- [First Steps](first-steps.md): installation, requirements, and initial setup
+- [Creating Arenas](arenas.md): dynamic arena creation, templates, and configuration
+- [Why Dynamic Arenas](dynamic-arenas.md): why Blue Arcade is moving away from static arenas
+- [Virtual Arenas](virtual-arenas.md): the experimental packet-rendered arena type
 
 ### Systems
-- [Party System](party-system.md) - Party creation and management
-- [Store](store.md) - Cosmetics shop and credits economy
-- [Achievements](achievements.md) - Achievement system and rewards
-- [Leaderboards & Stats](leaderboards.md) - Statistics and rankings
-- [XP & Levels](levels.md) - Experience and leveling system
-- [Replay System](replay-system.md) - Match recording and playback
+- [Party System](party-system.md): party creation and management
+- [Podiums & Tie-Breaks](podiums.md): end-of-round and end-of-match ceremonies, championship tie-breaks, and shared places
+- [Store](store.md): cosmetics shop and credits economy
+- [Achievements](achievements.md): achievement system and rewards
+- [Leaderboards & Stats](leaderboards.md): statistics and rankings
+- [XP & Levels](levels.md): experience and leveling system
+- [Replay System](replay-system.md): match recording and playback
 
 ### Reference
-- [Commands & Permissions](commands-permissions.md) - Complete command reference
-- [Placeholders](placeholders.md) - PlaceholderAPI integration
+- [Commands & Permissions](commands-permissions.md): complete command reference
+- [Placeholders](placeholders.md): PlaceholderAPI integration
 
 ### For Developers
-- [Creating a Module](developers.md) - Guide to creating custom minigame modules
-- [Universal Modules](universal-modules.md) - The new module format and why Blue Arcade is moving to it
+- [Creating a Module](developers.md): guide to creating custom minigame modules
+- [Universal Modules](universal-modules.md): the new module format and why Blue Arcade is moving to it
 
 ---
 
@@ -93,7 +97,6 @@ Minigames are separate modules. Each module has its own store page with detailed
 
 - **PlaceholderAPI** - For placeholder support in external plugins
 - **Vault** - Use server economy instead of Blue Arcade credits
-- **NoteBlockAPI** - For victory music playback
 - **Floodgate** - Bedrock player support
 - **WorldEdit** - Schematic generation and large-region operations
 - **AdvancedSlimePaper** - Faster in-memory dynamic arena worlds

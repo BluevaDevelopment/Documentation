@@ -8,7 +8,7 @@ Recording happens entirely inside Blue Arcade, so **every minigame is recorded w
 
 ## Requirements
 
-Replays only work in **dynamic arenas**. A static arena runs inside a persistent world that may be modified before or after the match, so there is nothing reliable to rebuild the recording on. See [Why Dynamic Arenas](dynamic-arenas.md).
+Replays only work in **dynamic arenas**. A static arena runs inside a persistent world that may be modified before or after the match, so there is nothing reliable to rebuild the recording on; experimental [virtual arenas](virtual-arenas.md) are not recorded yet. See [Why Dynamic Arenas](dynamic-arenas.md).
 
 ## Watching a Replay
 
@@ -48,7 +48,8 @@ The control items can be customized in `items.yml`, under `replay_controls`.
 - Block changes, including changes made directly by a module
 - Scoreboards, world time and world border
 - Chat and broadcast messages sent to the whole arena
-- Victory effects
+- Victory effects and victory music
+- Podium ceremonies, including the winner statues
 
 Messages addressed to a single player, such as personal titles, are not recorded. A live spectator would not have seen them either.
 
@@ -73,8 +74,9 @@ All settings live under `replay` in `settings.yml`:
 | `record_entities` | `true` | Record entities |
 | `record_module_block_changes` | `true` | Record block changes a module makes through the blocks API |
 | `block_scan.enabled` | `true` | Safety net for block changes that fire no event and do not use the blocks API |
-| `block_scan.interval_ticks` | `1` | How often a scan pass runs |
-| `block_scan.chunks_per_pass` | `0` | Chunks checked per pass. 0 or less means every loaded chunk |
+| `block_scan.interval_ticks` | `10` | How often (in ticks) the scan runs. Higher values cost less but detect changes later |
+| `block_scan.chunks_per_pass` | `0` | Most chunks started per run. 0 or less means no limit |
+| `block_scan.max_millis_per_tick` | `0.5` | Most server thread time the scan may use per run, in milliseconds |
 | `viewer.default_speed` | `1.0` | Playback speed a replay opens with |
 | `viewer.seek_seconds` | `10` | Seconds the forward and back controls jump |
 
@@ -102,3 +104,5 @@ Recordings are stored in `plugins/BlueArcade/data/replays`, one folder per repla
 ## Notes
 
 Playback runs in a temporary world created from the same template the match used, and that world is deleted when the viewer leaves. Nothing is written to your arena worlds, and a replay never affects a running match.
+
+Recording is cheap on the server thread: events are serialized, compressed and written to disk on a background worker since 3.6.0, and unchanged frames are skipped. If the write backlog ever grows too large (slow disk), the recording is stopped with a warning instead of dragging the server down.
